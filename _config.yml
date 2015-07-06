@@ -8,15 +8,14 @@ kramdown:
 # 作者信息
 author: 
   name: 柯均洁
-  email: kjj3300@gmail.com
-  link: http://yansu.org
-  weibo: http://weibo.com/yansu0711
+  email: kjj3300@163.com
+  link: http://junjiek.com
   github: http://github.com/junjiek
 
 # 站点信息
 title: 柯均洁的博客 
 description: 柯均洁的博客
-url: http://yansu.org
+url: http://junjiek.com
 rss_url: /pages/atom.xml
 
 # avatar头像及Favicon
@@ -26,7 +25,7 @@ favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
 # google analytics 设置
 ga:
   id: UA-54767140-1
-  url: yansu.org
+  url: junjiek.com
 
 # disqus 设置
 disqus:
