@@ -24,9 +24,9 @@ favicon: http://7u2ho6.com1.z0.glb.clouddn.com/site-favicon.ico
 
 # google analytics 设置
 ga:
-  id: UA-54767140-1
+  id: UA-64827079-1
   url: junjiek.com
 
 # disqus 设置
 disqus:
-  shortname: suyan-zh
+  shortname: junjiekcom
