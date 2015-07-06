@@ -2,13 +2,13 @@
 <rss version="2.0">
   <channel>
     <title>柯均洁的博客</title>
-    <link>http://junjiek.github.io</link>
+    <link>http://junjiek.com</link>
     <description>柯均洁的博客</description>
     
       <item>
         <title>使用 Zipcar 在加州租车</title>
-        <link>http://junjiek.github.io/2015/04/13/rent-car-by-zipcar.html</link>
-        <guid isPermaLink="true">http://junjiek.github.io/2015/04/13/rent-car-by-zipcar.html</guid>
+        <link>http://junjiek.com/2015/04/13/rent-car-by-zipcar.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2015/04/13/rent-car-by-zipcar.html</guid>
         <pubDate>Mon, 13 Apr 2015 00:00:00 -0400</pubDate>
         <description>&lt;blockquote&gt;
   &lt;p&gt;在洛杉矶这个“大饼”中生活，没有车真的是各种艰难。2月初把驾照考过了，接下来就考虑买车或者租车。买车算了算不是很划算，而且对车也不太懂，就考虑先租车。&lt;/p&gt;
@@ -73,8 +73,8 @@
     
       <item>
         <title>SEO 常用资源</title>
-        <link>http://junjiek.github.io/2015/02/13/general-seo-resources.html</link>
-        <guid isPermaLink="true">http://junjiek.github.io/2015/02/13/general-seo-resources.html</guid>
+        <link>http://junjiek.com/2015/02/13/general-seo-resources.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2015/02/13/general-seo-resources.html</guid>
         <pubDate>Fri, 13 Feb 2015 00:00:00 -0500</pubDate>
         <description>&lt;h2 id=&quot;section&quot;&gt;小技巧&lt;/h2&gt;
 
@@ -86,8 +86,8 @@
     
       <item>
         <title>微软 Openhack 2015</title>
-        <link>http://junjiek.github.io/2015/01/30/microsoft-openhack-2015.html</link>
-        <guid isPermaLink="true">http://junjiek.github.io/2015/01/30/microsoft-openhack-2015.html</guid>
+        <link>http://junjiek.com/2015/01/30/microsoft-openhack-2015.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2015/01/30/microsoft-openhack-2015.html</guid>
         <pubDate>Fri, 30 Jan 2015 00:00:00 -0500</pubDate>
         <description>&lt;p&gt;Hackathon 在国内也见过不少，不过一直没有参加过，一是熬夜实在是伤身体，二是以前不太好找队伍。这回室友喊我去参加，因为好奇这边IT的工作环境，就去参加了。&lt;/p&gt;
 
@@ -118,8 +118,8 @@
     
       <item>
         <title>使用Dropzone和七牛云存储来优化博客图床</title>
-        <link>http://junjiek.github.io/2015/01/10/use-dropzone-and-qiniu-to-store-blog-images.html</link>
-        <guid isPermaLink="true">http://junjiek.github.io/2015/01/10/use-dropzone-and-qiniu-to-store-blog-images.html</guid>
+        <link>http://junjiek.com/2015/01/10/use-dropzone-and-qiniu-to-store-blog-images.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2015/01/10/use-dropzone-and-qiniu-to-store-blog-images.html</guid>
         <pubDate>Sat, 10 Jan 2015 00:00:00 -0500</pubDate>
         <description>&lt;blockquote&gt;
   &lt;p&gt;之前我在用SAE的Storage作为博客图床，但是令我非常不爽的是没有一个很好的上传和获得公共链接的方法。现在总算用Dropzone和七牛把这个问题解决了，下面是我上传图片和获得URL的操作，方法再往下看。&lt;/p&gt;
@@ -212,8 +212,8 @@
     
       <item>
         <title>Laravel 关联模型由于名称一致性导致的问题</title>
-        <link>http://junjiek.github.io/2015/01/08/conflict-between-camel-and-snake-in-laravel.html</link>
-        <guid isPermaLink="true">http://junjiek.github.io/2015/01/08/conflict-between-camel-and-snake-in-laravel.html</guid>
+        <link>http://junjiek.com/2015/01/08/conflict-between-camel-and-snake-in-laravel.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2015/01/08/conflict-between-camel-and-snake-in-laravel.html</guid>
         <pubDate>Thu, 08 Jan 2015 00:00:00 -0500</pubDate>
         <description>&lt;h2 id=&quot;section&quot;&gt;1. 定义关联模型&lt;/h2&gt;
 
@@ -276,8 +276,8 @@ $post_info = $post-&amp;gt;my_post_info;
     
       <item>
         <title>2014 个人总结</title>
-        <link>http://junjiek.github.io/2015/01/01/my-2014.html</link>
-        <guid isPermaLink="true">http://junjiek.github.io/2015/01/01/my-2014.html</guid>
+        <link>http://junjiek.com/2015/01/01/my-2014.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2015/01/01/my-2014.html</guid>
         <pubDate>Thu, 01 Jan 2015 00:00:00 -0500</pubDate>
         <description>&lt;blockquote&gt;
   &lt;p&gt;在2014年里，我在求学、职业生涯以及家庭关系上都有过多次尝试和选择。&lt;/p&gt;
@@ -327,8 +327,8 @@ $post_info = $post-&amp;gt;my_post_info;
     
       <item>
         <title>美西加州三日游</title>
-        <link>http://junjiek.github.io/2014/12/12/travel-of-california.html</link>
-        <guid isPermaLink="true">http://junjiek.github.io/2014/12/12/travel-of-california.html</guid>
+        <link>http://junjiek.com/2014/12/12/travel-of-california.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2014/12/12/travel-of-california.html</guid>
         <pubDate>Fri, 12 Dec 2014 00:00:00 -0500</pubDate>
         <description>&lt;blockquote&gt;
   &lt;p&gt;来美3个月了，终于迎来第一个小假期。由于时间有限，还没有车，所以选择了跟团先粗略了解一下加州。&lt;/p&gt;
@@ -404,8 +404,8 @@ $post_info = $post-&amp;gt;my_post_info;
     
       <item>
         <title>Laravel 核心：控制反转（Inversion of Control）和门面模式（Facade）</title>
-        <link>http://junjiek.github.io/2014/12/06/ioc-and-facade-in-laravel.html</link>
-        <guid isPermaLink="true">http://junjiek.github.io/2014/12/06/ioc-and-facade-in-laravel.html</guid>
+        <link>http://junjiek.com/2014/12/06/ioc-and-facade-in-laravel.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2014/12/06/ioc-and-facade-in-laravel.html</guid>
         <pubDate>Sat, 06 Dec 2014 00:00:00 -0500</pubDate>
         <description>&lt;blockquote&gt;
   &lt;p&gt;这两个概念对于 Laravel 的使用者来说应该并不陌生，尤其是当你希望扩展或者替换 Laravel 核心库的时候，理解和合理使用它们可以极大提升 Laravel 的战斗力。这里以创建一个自己的 ServiceProvider 为例理解 Inversion of Control 和 Facade 在 Laravel 中的应用。&lt;/p&gt;
@@ -553,8 +553,8 @@ class Foo extends Facade {
     
       <item>
         <title>回退Mac上用Brew安装的PHP版本</title>
-        <link>http://junjiek.github.io/2014/09/26/use-old-version-of-brew-php.html</link>
-        <guid isPermaLink="true">http://junjiek.github.io/2014/09/26/use-old-version-of-brew-php.html</guid>
+        <link>http://junjiek.com/2014/09/26/use-old-version-of-brew-php.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2014/09/26/use-old-version-of-brew-php.html</guid>
         <pubDate>Fri, 26 Sep 2014 00:00:00 -0400</pubDate>
         <description>&lt;blockquote&gt;
   &lt;p&gt;昨天随手一点&lt;code&gt;brew upadte &amp;amp; brew upgrade&lt;/code&gt;后phpunit出现了各种F，细查下来原来是 php 5.5.17 的一个&lt;a href=&quot;https://bugs.php.net/bug.php?id=67839&quot;&gt;bug fix&lt;/a&gt; 引起的。为了暂时正常使用phpunit，只能回退php的版本。&lt;/p&gt;
@@ -613,8 +613,8 @@ brew link php55
     
       <item>
         <title>Mac 常用资源</title>
-        <link>http://junjiek.github.io/2014/08/03/general-mac-resources.html</link>
-        <guid isPermaLink="true">http://junjiek.github.io/2014/08/03/general-mac-resources.html</guid>
+        <link>http://junjiek.com/2014/08/03/general-mac-resources.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2014/08/03/general-mac-resources.html</guid>
         <pubDate>Sun, 03 Aug 2014 00:00:00 -0400</pubDate>
         <description>&lt;h2 id=&quot;section&quot;&gt;常用软件&lt;/h2&gt;
 
@@ -715,8 +715,8 @@ chmod 600 ~/Desktop/.localized
     
       <item>
         <title>MySQL常用资源</title>
-        <link>http://junjiek.github.io/2014/05/11/general-mysql-resources.html</link>
-        <guid isPermaLink="true">http://junjiek.github.io/2014/05/11/general-mysql-resources.html</guid>
+        <link>http://junjiek.com/2014/05/11/general-mysql-resources.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2014/05/11/general-mysql-resources.html</guid>
         <pubDate>Sun, 11 May 2014 00:00:00 -0400</pubDate>
         <description>&lt;h2 id=&quot;section&quot;&gt;常用命令&lt;/h2&gt;
 
@@ -767,8 +767,8 @@ grant all privileges on *.* to test@&#39;localhost&#39; identified by &#39;test&
     
       <item>
         <title>为PHP设置服务器(Apache/Nginx)环境变量</title>
-        <link>http://junjiek.github.io/2014/05/04/set-environment-variables-of-server-for-php.html</link>
-        <guid isPermaLink="true">http://junjiek.github.io/2014/05/04/set-environment-variables-of-server-for-php.html</guid>
+        <link>http://junjiek.com/2014/05/04/set-environment-variables-of-server-for-php.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2014/05/04/set-environment-variables-of-server-for-php.html</guid>
         <pubDate>Sun, 04 May 2014 00:00:00 -0400</pubDate>
         <description>&lt;blockquote&gt;
   &lt;p&gt;设置环境变量常见的地方为区分开发环境/生产环境，或者定义一些数据库的帐号密码&lt;/p&gt;
@@ -898,8 +898,8 @@ fastcgi_param MYSQL_PASSWORD &#39;root&#39;;
     
       <item>
         <title>PHP中的魔术方法和魔术常量简介和使用</title>
-        <link>http://junjiek.github.io/2014/04/27/magic-methods-and-magic-constants-in-php.html</link>
-        <guid isPermaLink="true">http://junjiek.github.io/2014/04/27/magic-methods-and-magic-constants-in-php.html</guid>
+        <link>http://junjiek.com/2014/04/27/magic-methods-and-magic-constants-in-php.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2014/04/27/magic-methods-and-magic-constants-in-php.html</guid>
         <pubDate>Sun, 27 Apr 2014 00:00:00 -0400</pubDate>
         <description>&lt;blockquote&gt;
   &lt;p&gt;有些东西如果不是经常使用，很容易忘记，比如魔术方法和魔术常量。&lt;/p&gt;
@@ -1150,8 +1150,8 @@ public class Singleton {
     
       <item>
         <title>ROC曲线</title>
-        <link>http://junjiek.github.io/2014/04/23/roc-curve.html</link>
-        <guid isPermaLink="true">http://junjiek.github.io/2014/04/23/roc-curve.html</guid>
+        <link>http://junjiek.com/2014/04/23/roc-curve.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2014/04/23/roc-curve.html</guid>
         <pubDate>Wed, 23 Apr 2014 00:00:00 -0400</pubDate>
         <description>&lt;blockquote&gt;
   &lt;p&gt;最近在读的几篇论文中都使用ROC曲线来分析算法的好坏，这里总结一下这个曲线的一些名词和用法。我这里只列举一些很简单的内容，想要掌握详细的用法请移步参考中维基百科链接，那里讲解非常详细。&lt;/p&gt;
@@ -1189,8 +1189,8 @@ public class Singleton {
     
       <item>
         <title>设计模式详解及PHP实现</title>
-        <link>http://junjiek.github.io/2014/04/19/design-patterns-of-php.html</link>
-        <guid isPermaLink="true">http://junjiek.github.io/2014/04/19/design-patterns-of-php.html</guid>
+        <link>http://junjiek.com/2014/04/19/design-patterns-of-php.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2014/04/19/design-patterns-of-php.html</guid>
         <pubDate>Sat, 19 Apr 2014 00:00:00 -0400</pubDate>
         <description>&lt;blockquote&gt;
   &lt;p&gt;由于工作中需要写一个比较复杂的类库，这个类库需要很高的扩展性、维护性及复用性。为了麻烦现在简单未来，使用设计模式思想来优化类库可以使工作事半功倍，在这里记录一下各种设计模式，总结一下知识，顺便也可以做为自己日后的参考。&lt;/p&gt;
@@ -3295,8 +3295,8 @@ $res_a-&amp;gt;setNext($res_b);
     
       <item>
         <title>MySQL大量数据插入各种方法性能分析与比较</title>
-        <link>http://junjiek.github.io/2014/04/16/insert-large-number-of-data-in-mysql.html</link>
-        <guid isPermaLink="true">http://junjiek.github.io/2014/04/16/insert-large-number-of-data-in-mysql.html</guid>
+        <link>http://junjiek.com/2014/04/16/insert-large-number-of-data-in-mysql.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2014/04/16/insert-large-number-of-data-in-mysql.html</guid>
         <pubDate>Wed, 16 Apr 2014 00:00:00 -0400</pubDate>
         <description>&lt;blockquote&gt;
   &lt;p&gt;不管是日常业务数据处理中，还是数据库的导入导出，都可能遇到需要处理大量数据的插入。插入的方式和数据库引擎都会对插入速度造成影响，这篇文章旨在从理论和实践上对各种方法进行分析和比较，方便以后应用中插入方法的选择。&lt;/p&gt;
@@ -3446,8 +3446,8 @@ echo &quot;峰值内存&quot;, round(memory_get_peak_usage()/1000), &quot;KB\n&q
     
       <item>
         <title>我们得比自己更努力</title>
-        <link>http://junjiek.github.io/2014/04/15/we-should-be-better-than-us.html</link>
-        <guid isPermaLink="true">http://junjiek.github.io/2014/04/15/we-should-be-better-than-us.html</guid>
+        <link>http://junjiek.com/2014/04/15/we-should-be-better-than-us.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2014/04/15/we-should-be-better-than-us.html</guid>
         <pubDate>Tue, 15 Apr 2014 00:00:00 -0400</pubDate>
         <description>&lt;blockquote&gt;
   &lt;p&gt;选择了与众不同，就要准备好面对自己选择的道路的曲折，以及周围人们的不解。&lt;/p&gt;
@@ -3489,8 +3489,8 @@ echo &quot;峰值内存&quot;, round(memory_get_peak_usage()/1000), &quot;KB\n&q
     
       <item>
         <title>Laravel中使用Redis作为队列系统的工作流程</title>
-        <link>http://junjiek.github.io/2014/04/11/redis-queue-in-laravel.html</link>
-        <guid isPermaLink="true">http://junjiek.github.io/2014/04/11/redis-queue-in-laravel.html</guid>
+        <link>http://junjiek.com/2014/04/11/redis-queue-in-laravel.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2014/04/11/redis-queue-in-laravel.html</guid>
         <pubDate>Fri, 11 Apr 2014 00:00:00 -0400</pubDate>
         <description>&lt;blockquote&gt;
   &lt;p&gt;利用Redis可以很方便的实现一个任务队列，但是在Laravel中，Redis的队列总会出现一个任务多次执行的问题。究其原因是它写死了reserved的时长，也就是如果1分钟后任务没有执行完成，那么这个任务就会被重新放回队列。下面是队列的简单使用和执行原理。&lt;/p&gt;
@@ -3565,8 +3565,8 @@ Queue::push(&#39;SendEmail@send&#39;, array(&#39;message&#39; =&amp;gt; $message
     
       <item>
         <title>在Mac下安装使用Vagrant</title>
-        <link>http://junjiek.github.io/2014/04/10/install-vagrant-in-mac.html</link>
-        <guid isPermaLink="true">http://junjiek.github.io/2014/04/10/install-vagrant-in-mac.html</guid>
+        <link>http://junjiek.com/2014/04/10/install-vagrant-in-mac.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2014/04/10/install-vagrant-in-mac.html</guid>
         <pubDate>Thu, 10 Apr 2014 00:00:00 -0400</pubDate>
         <description>&lt;blockquote&gt;
   &lt;p&gt;Vagrant是一款用来构建虚拟开发环境的工具，它其实算是一个跨平台的虚拟机管理工具。&lt;/p&gt;
@@ -3654,8 +3654,8 @@ ls
     
       <item>
         <title>在Mac下安装使用Docker</title>
-        <link>http://junjiek.github.io/2014/04/10/install-docker-in-mac.html</link>
-        <guid isPermaLink="true">http://junjiek.github.io/2014/04/10/install-docker-in-mac.html</guid>
+        <link>http://junjiek.com/2014/04/10/install-docker-in-mac.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2014/04/10/install-docker-in-mac.html</guid>
         <pubDate>Thu, 10 Apr 2014 00:00:00 -0400</pubDate>
         <description>&lt;h2 id=&quot;section&quot;&gt;安装&lt;/h2&gt;
 &lt;p&gt;Docker暂时并不支持原生的Mac系统，所以Mac下的Docker实际上是依赖一个很小的linux虚拟机来实现的。&lt;/p&gt;
