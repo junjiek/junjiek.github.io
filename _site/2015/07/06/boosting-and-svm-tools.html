@@ -5,12 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <!--[if lte IE 9]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
 
-<title>使用Dropzone和七牛云存储来优化博客图床 | 柯均洁的博客</title>
+<title>Boosting及SVM的工具使用总结 | 柯均洁的博客</title>
 <meta name="author" content="柯均洁">
 
-  <meta name="keywords" content="Dropzone,Qiniu,七牛,图床,博客">
+  <meta name="keywords" content="svm,boosting,adaboost,multiboost">
 
 
+
+  <meta name="description " content="Boosting及SVM的工具使用总结">
 
 
 <link rel="shortcut icon" href="http://img6.douban.com/view/photo/photo/public/p2254493685.jpg" />
@@ -18,6 +20,15 @@
 <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 
 <link href="/pages/rss.xml" rel="alternate" title="柯均洁的博客" type="application/atom+xml">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+                  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+                          });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
   </head>
   <body>
     <aside id="sidebar">
@@ -46,7 +57,9 @@
 
     <nav id="pl__container">
     
-      <a class="工具 pl__all" href="/2015/07/06/boosting-and-svm-tools.html"><span class="pl__circle"></span><span class="pl__title">使用Dropzone和七牛云存储来优化博客图床</span><span class="pl__date">Jul 2015</span></a>
+      <a class="工具 pl__all" href="/2015/07/07/ssh.html"><span class="pl__circle"></span><span class="pl__title">ssh使用方法总结</span><span class="pl__date">Jul 2015</span></a>
+    
+      <a class="工具 pl__all" href="/2015/07/06/boosting-and-svm-tools.html"><span class="pl__circle"></span><span class="pl__title">Boosting及SVM的工具使用总结</span><span class="pl__date">Jul 2015</span></a>
     
     </nav>
   </div> <!-- end #posts-list -->
@@ -54,100 +67,141 @@
     <div id="post">
       <div id="pjax">
         <article id="post__content">
-  <h1 id="post__title" data-identifier="20150706">使用Dropzone和七牛云存储来优化博客图床</h1>
+  <h1 id="post__title" data-identifier="20150706">Boosting及SVM的工具使用总结</h1>
   <blockquote>
-  <p>之前我在用SAE的Storage作为博客图床，但是令我非常不爽的是没有一个很好的上传和获得公共链接的方法。现在总算用Dropzone和七牛把这个问题解决了，下面是我上传图片和获得URL的操作，方法再往下看。</p>
+  <p>Wanna compare the performance of ensemble methods with svm, here’s a summary of the usage of some existing tools.</p>
 </blockquote>
 
-<p><img src="http://7u2ho6.com1.z0.glb.clouddn.com/tool-qiniu-workflow.gif" alt="七牛操作流" /></p>
-
-<h2 id="section">设置七牛帐号</h2>
-
-<blockquote>
-  <p><a href="http://www.qiniu.com">七牛</a>是国内口碑不错的一个云存储为主的公司。它的特点应该就在图片存储上，有非常方便的上传SDK和图片处理流，用来作为博客图床非常合适，而且价格不贵，每月有免费的10G流量。</p>
-</blockquote>
-
-<ol>
-  <li>
-    <p>去七牛注册帐号</p>
-
-    <p>刚刚创建的帐号是测试帐号，完成个人认证就可以成为标准帐号，获得10G的存储空间和各10G的上传下载流量。</p>
-
-    <p><img src="http://7u2ho6.com1.z0.glb.clouddn.com/tool-qiniu-normal-account.png" alt="标准帐号" /></p>
-  </li>
-  <li>
-    <p>创建一个空间</p>
-
-    <p>创建空间也比较容易，记得选择公开空间。</p>
-
-    <p><img src="http://7u2ho6.com1.z0.glb.clouddn.com/tool-qiniu-create-bucket.png" alt="创建空间" /></p>
-  </li>
-</ol>
-
-<h2 id="dropzone">设置Dropzone</h2>
-
-<blockquote>
-  <p><a href="https://aptonic.com/dropzone3/">Dropzone</a>是我很早就非常喜欢的一个软件。它通过拖拽的方式，增强了文件的处理流程。一直懒得给它开发插件，没想到七牛的SDK如此好用，所以今天折腾了一下搞定了。</p>
-</blockquote>
-
-<ol>
-  <li>
-    <p>下载软件</p>
-
-    <p>这个软件可以在App Store上直接购买，但是买到的是功能受限的，它不能操作外部文件。不过没有关系，再从官网上下载非沙箱版本，然后覆盖掉Application文件夹下的即可。</p>
-  </li>
-  <li>
-    <p>安装Qiniu插件</p>
-
-    <p>我把这个插件放到了<a href="https://github.com/suyan/scripts/tree/master/Dropzone%20Action">Github</a>上，戳<a href="https://github.com/suyan/scripts/blob/master/Dropzone%20Action/Qiniu.dzbundle.zip?raw=true">这里</a>下载。</p>
-  </li>
-  <li>
-    <p>安装插件</p>
-
-    <p>下载后的是一个zip包，把这个包解压以后双击安装即可。</p>
-  </li>
-  <li>
-    <p>安装Qiniu的Ruby库</p>
-
-    <p><code>
- sudo gem install qiniu
-</code></p>
-  </li>
-  <li>
-    <p>启用插件</p>
-
-    <p>从增加列表中选择我们安装好的七牛插件。</p>
-
-    <p><img src="http://7u2ho6.com1.z0.glb.clouddn.com/tool-use-bundle.png" alt="启用插件" /></p>
-
-    <p>然后填写配置：</p>
-
+<h1 id="document-datasets">Document datasets</h1>
+<ul>
+  <li><a href="http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/">Libsvm Datasets</a>
     <ul>
-      <li>server: 七牛上的空间名</li>
-      <li>username: 七牛的access_key</li>
-      <li>password: 七牛的secret_key</li>
-      <li>remote path(可选): 本地同步图片的目录，如果你希望本地也存一份图片，选一个地址即可</li>
-      <li>root url: 七牛的公共链接根目录</li>
+      <li><a href="http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/multiclass.html#news20">news20</a></li>
+      <li><a href="http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#news20.binary">news20.binary</a></li>
+      <li><a href="http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#rcv1.binary">rcv1.binary</a></li>
     </ul>
-
-    <p><img src="http://7u2ho6.com1.z0.glb.clouddn.com/tool-qiniu-access-key.png" alt="access key" /></p>
-
-    <p><img src="http://7u2ho6.com1.z0.glb.clouddn.com/tool-qiniu-root-url.png" alt="root url" /></p>
   </li>
-</ol>
+</ul>
 
-<h2 id="section-1">其他建议</h2>
+<h1 id="boosting">Boosting</h1>
 
-<p>利用Dropzone还有很多可利用的技巧，例如增加一个ImageOptim应用来压缩图片，然后再进行上传。</p>
+<h2 id="multiboosthttpwwwmultiboostorg"><a href="http://www.multiboost.org/">Multiboost</a></h2>
 
-<p>对于临时图片，可以直接上传到Imgur获得链接。</p>
+<p>资源：<a href="http://www.multiboost.org/download/MultiBoost-1.2.02.zip?attredirects=0&amp;d=1">下载链接</a>、<a href="http://docs.google.com/viewer?a=v&amp;pid=sites&amp;srcid=bXVsdGlib29zdC5vcmd8d3d3fGd4OjE5YjY0MzgwNjNlNjU1NmY">使用文档</a></p>
+
+<p>使用方法：</p>
+
+<pre><code>$ ./multiboost --stronglearner [AdaBoostMH/ArcGV/FilterBoost/VJcascade/SoftCascade]
+             --fileformat [arff/svmlight/simple]
+             --traintest &lt;trainfile&gt; &lt;testfile&gt; &lt;iteration_num&gt;
+             --verbose [0-5]
+             --learnertype SingleStumpLearner
+             --outputfile &lt;results.dta&gt;
+             --shypname shyp.xml
+</code></pre>
+
+<h2 id="adaboosthttpsgithubcomyamaguchi23adaboost"><a href="https://github.com/yamaguchi23/adaboost">Adaboost</a></h2>
+
+<p>使用方法：</p>
+<h5>Training</h5>
+
+<pre><code>$ ./abtrain [options] training_set_file [model_file]  
+  options:  
+    -t: type of boosting (0:discrete, 1:real, 2:gentle) [default:2]  
+    -r: the number of rounds [default:100]  
+    -v: verbose'
+</code></pre>
+
+<h5>Prediction</h5>
+<pre><code>$ ./abpredict [options] test_set_file model_file  
+  options:  
+    -o: output score file  
+    -v: verbose'
+</code></pre>
+
+<h1 id="svm">SVM</h1>
+
+<p>Documentation：（<a href="http://www.csie.ntu.edu.tw/~cjlin/papers/guide/guide.pdf">Libsvm</a> <a href="http://www.csie.ntu.edu.tw/~cjlin/papers/liblinear.pdf">Liblinear</a>）</p>
+
+<h2 id="libsvmhttpwwwcsientuedutwcjlinlibsvmindexhtml"><a href="http://www.csie.ntu.edu.tw/~cjlin/libsvm/index.html">Libsvm</a></h2>
+
+<h4>Procedure</h4>
+<ul>
+  <li>SVM formatting</li>
+  <li>Scaling ( linearly to <script type="math/tex">[−1, +1]</script> or <script type="math/tex">[0, 1]</script> )</li>
+  <li>Try the RBF kernel</li>
+</ul>
+
+<script type="math/tex; mode=display">K(x, y)=e^{-\gamma ||x-y||^2}</script>
+
+<ul>
+  <li>Use cross-validation to find the best parameter <script type="math/tex">C</script> and <script type="math/tex">\gamma</script>
+    <ul>
+      <li>Try different pairs of <script type="math/tex">(C, \gamma)</script> (grid-search)</li>
+    </ul>
+  </li>
+  <li>Use the best parameter <script type="math/tex">C</script> and <script type="math/tex">\gamma</script> to train the whole training set</li>
+  <li>Test</li>
+</ul>
+
+<h4>Example</h4>
+<blockquote>
+
+</blockquote>
+
+<blockquote>
+  <p>Scaled sets with default parameters</p>
+</blockquote>
+
+<pre><code>$ ./svm-scale -l -1 -u 1 -s range3 svmguide3 &gt; svmguide3.scale
+$ ./svm-scale -r range3 svmguide3.t &gt; svmguide3.t.scale
+$ ./svm-train svmguide3.scale
+$ ./svm-predict svmguide3.t.scale svmguide3.scale.model svmguide3.t.predict
+</code></pre>
+
+<blockquote>
+  <p>Scaled sets with parameter selection</p>
+</blockquote>
+
+<pre><code>$ python grid.py svmguide3.scale
+</code></pre>
+
+<blockquote>
+  <p>Using an automatic scrip</p>
+</blockquote>
+
+<pre><code>$ python easy.py svmguide3 svmguide3.t
+</code></pre>
+
+<h2 id="liblinearhttpwwwcsientuedutwcjlinliblinear"><a href="http://www.csie.ntu.edu.tw/~cjlin/liblinear/">Liblinear</a></h2>
+
+<blockquote>
+  <p>Particularly useful for document data. (“bag-of-words” model)</p>
+</blockquote>
+
+<blockquote>
+  <p>The -C option efficiently conducts cross validation several times and finds<br />
+the best parameter automatically.</p>
+</blockquote>
+
+<pre><code>$ ./train -C -s 2 news20.scale
+</code></pre>
+
+<blockquote>
+  <p>Train and predict</p>
+</blockquote>
+
+<pre><code>$ ./train -c 1 -s 2 trainfile modelfile
+$ ./predict testfile modelfile prediction
+</code></pre>
+
 
 </article> <!-- end #post__content -->
 
 <div id="post__share">
-  <a id="icon-twitter" class="fontello" href="https://twitter.com/intent/tweet?url=http://junjiek.com/2015/07/06/boosting-and-svm-tools.html&text=使用Dropzone和七牛云存储来优化博客图床" target="_blank"></a>
+  <a id="icon-twitter" class="fontello" href="https://twitter.com/intent/tweet?url=http://junjiek.com/2015/07/06/boosting-and-svm-tools.html&text=Boosting及SVM的工具使用总结" target="_blank"></a>
   <a id="icon-cc" class="fontello" href="http://creativecommons.org/licenses/by-nc-sa/3.0" target="_blank"></a>
-  <a id="icon-weibo" class="fontello" href="http://v.t.sina.com.cn/share/share.php?url=http://junjiek.com/2015/07/06/boosting-and-svm-tools.html&title=使用Dropzone和七牛云存储来优化博客图床" target="_blank"></a>
+  <a id="icon-weibo" class="fontello" href="http://v.t.sina.com.cn/share/share.php?url=http://junjiek.com/2015/07/06/boosting-and-svm-tools.html&title=Boosting及SVM的工具使用总结" target="_blank"></a>
 </div> <!-- end #post__share -->
 <div id="disqus_thread" name="junjiekcom">
   <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

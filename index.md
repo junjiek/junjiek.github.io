@@ -5,14 +5,12 @@ title: Welcome
 
 ## 对博客的理解
 
-我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。
+一直想有个只属于自己的写东西的地方，偶然发现了github pages，同时满足了我这个技术控、整理控对于blog外观及文档层次管理的苛刻要求。
 
-通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。
-
-分类有助于我们对信息的隔离，例如我把自己的记录分成这几类：技术、工具、资源、生活、读书和旅游。这是我生活重中最重要的几个类别，我希望把自己的一些心得和尝试写在相应分类中。
+真心的希望自己能够坚持在这个小小的部落格记录下自己对于技术、生活的点滴理解，欢迎大神们批评指教，与大家共勉 (＞▽＜)
 
 ## 博客平台
 
-这个博客通过 [Jekyll](http://jekyllrb.com/) 生成，部署在 [Github](https://pages.github.com)，主题基于 [3-Jekyll](https://github.com/P233/3-Jekyll) 修改生成，非常感谢 [Peiwen Lu](https://github.com/P233) 开发出这么漂亮的主题。
+这个博客通过 [Jekyll](http://jekyllrb.com/) 生成，部署在 [Github](https://pages.github.com)，主题主要参考[闫肃](http://yansu.org/)的blog，基于 [3-Jekyll](https://github.com/P233/3-Jekyll) 修改生成。非常感谢[闫肃](http://yansu.org/)提供的建立Github Blog的教程！
 
 我博客的源码托管在[Github](https://github.com/junjiek/junjiek.github.io)上，如果有任何改进意见，欢迎讨论。

@@ -16,6 +16,15 @@
 <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 
 <link href="/pages/rss.xml" rel="alternate" title="柯均洁的博客" type="application/atom+xml">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+                  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+                          });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
   </head>
   <body>
     <aside id="sidebar">
@@ -44,7 +53,9 @@
 
     <nav id="pl__container">
     
-      <a class="工具 pl__all" href="/2015/07/06/boosting-and-svm-tools.html"><span class="pl__circle"></span><span class="pl__title">使用Dropzone和七牛云存储来优化博客图床</span><span class="pl__date">Jul 2015</span></a>
+      <a class="工具 pl__all" href="/2015/07/07/ssh.html"><span class="pl__circle"></span><span class="pl__title">ssh使用方法总结</span><span class="pl__date">Jul 2015</span></a>
+    
+      <a class="工具 pl__all" href="/2015/07/06/boosting-and-svm-tools.html"><span class="pl__circle"></span><span class="pl__title">Boosting及SVM的工具使用总结</span><span class="pl__date">Jul 2015</span></a>
     
     </nav>
   </div> <!-- end #posts-list -->
@@ -55,15 +66,13 @@
   <h1 id="post__title" data-identifier="">Welcome</h1>
   <h2 id="section">对博客的理解</h2>
 
-<p>我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。</p>
+<p>一直想有个只属于自己的写东西的地方，偶然发现了github pages，同时满足了我这个技术控、整理控对于blog外观及文档层次管理的苛刻要求。</p>
 
-<p>通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。</p>
-
-<p>分类有助于我们对信息的隔离，例如我把自己的记录分成这几类：技术、工具、资源、生活、读书和旅游。这是我生活重中最重要的几个类别，我希望把自己的一些心得和尝试写在相应分类中。</p>
+<p>真心的希望自己能够坚持在这个小小的部落格记录下自己对于技术、生活的点滴理解，欢迎大神们批评指教，与大家共勉 (＞▽＜)</p>
 
 <h2 id="section-1">博客平台</h2>
 
-<p>这个博客通过 <a href="http://jekyllrb.com/">Jekyll</a> 生成，部署在 <a href="https://pages.github.com">Github</a>，主题基于 <a href="https://github.com/P233/3-Jekyll">3-Jekyll</a> 修改生成，非常感谢 <a href="https://github.com/P233">Peiwen Lu</a> 开发出这么漂亮的主题。</p>
+<p>这个博客通过 <a href="http://jekyllrb.com/">Jekyll</a> 生成，部署在 <a href="https://pages.github.com">Github</a>，主题主要参考<a href="http://yansu.org/">闫肃</a>的blog，基于 <a href="https://github.com/P233/3-Jekyll">3-Jekyll</a> 修改生成。非常感谢<a href="http://yansu.org/">闫肃</a>提供的建立Github Blog的教程！</p>
 
 <p>我博客的源码托管在<a href="https://github.com/junjiek/junjiek.github.io">Github</a>上，如果有任何改进意见，欢迎讨论。</p>
 

@@ -6,96 +6,177 @@
     <description>柯均洁的博客</description>
     
       <item>
-        <title>使用Dropzone和七牛云存储来优化博客图床</title>
+        <title>ssh使用方法总结</title>
+        <link>http://junjiek.com/2015/07/07/ssh.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2015/07/07/ssh.html</guid>
+        <pubDate>Tue, 07 Jul 2015 00:00:00 -0400</pubDate>
+        <description>&lt;h2 id=&quot;section&quot;&gt;常用的命令&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;scp：可以在本地和远程传输文件&lt;/li&gt;
+  &lt;li&gt;wget：直接通过链接下载文件&lt;/li&gt;
+  &lt;li&gt;htop：查看任务运行情况&lt;/li&gt;
+  &lt;li&gt;tmux：在tmux里面跑程序不用担心ssh连接
+    &lt;ul&gt;
+      &lt;li&gt;tmux attach：重新回到界面&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;nohup：让程序在关闭窗口（切换SSH连接）的时候程序还能继续在后台运行。&lt;br /&gt;
+ nohup Command [Arg…] [&amp;amp;]&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;ssh&quot;&gt;ssh自动登录（无需密码）&lt;/h2&gt;
+
+&lt;p&gt;生成密钥对&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh-keygen -t rsa
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后改一下 .ssh 目录的权限&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$chmod 755 ~/.ssh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;把这个密钥对中的公共密钥复制到你要访问的机器上去，并保存为 ~/.ssh/authorized_keys&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ scp ~/.ssh/id_rsa.pub junjiek@blahblah:~/.ssh/authorized_keys
+&lt;/code&gt;&lt;/pre&gt;
+
+</description>
+      </item>
+    
+      <item>
+        <title>Boosting及SVM的工具使用总结</title>
         <link>http://junjiek.com/2015/07/06/boosting-and-svm-tools.html</link>
         <guid isPermaLink="true">http://junjiek.com/2015/07/06/boosting-and-svm-tools.html</guid>
         <pubDate>Mon, 06 Jul 2015 00:00:00 -0400</pubDate>
         <description>&lt;blockquote&gt;
-  &lt;p&gt;之前我在用SAE的Storage作为博客图床，但是令我非常不爽的是没有一个很好的上传和获得公共链接的方法。现在总算用Dropzone和七牛把这个问题解决了，下面是我上传图片和获得URL的操作，方法再往下看。&lt;/p&gt;
+  &lt;p&gt;Wanna compare the performance of ensemble methods with svm, here’s a summary of the usage of some existing tools.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://7u2ho6.com1.z0.glb.clouddn.com/tool-qiniu-workflow.gif&quot; alt=&quot;七牛操作流&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;设置七牛帐号&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;http://www.qiniu.com&quot;&gt;七牛&lt;/a&gt;是国内口碑不错的一个云存储为主的公司。它的特点应该就在图片存储上，有非常方便的上传SDK和图片处理流，用来作为博客图床非常合适，而且价格不贵，每月有免费的10G流量。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;去七牛注册帐号&lt;/p&gt;
-
-    &lt;p&gt;刚刚创建的帐号是测试帐号，完成个人认证就可以成为标准帐号，获得10G的存储空间和各10G的上传下载流量。&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;http://7u2ho6.com1.z0.glb.clouddn.com/tool-qiniu-normal-account.png&quot; alt=&quot;标准帐号&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;创建一个空间&lt;/p&gt;
-
-    &lt;p&gt;创建空间也比较容易，记得选择公开空间。&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;http://7u2ho6.com1.z0.glb.clouddn.com/tool-qiniu-create-bucket.png&quot; alt=&quot;创建空间&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;dropzone&quot;&gt;设置Dropzone&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;https://aptonic.com/dropzone3/&quot;&gt;Dropzone&lt;/a&gt;是我很早就非常喜欢的一个软件。它通过拖拽的方式，增强了文件的处理流程。一直懒得给它开发插件，没想到七牛的SDK如此好用，所以今天折腾了一下搞定了。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;下载软件&lt;/p&gt;
-
-    &lt;p&gt;这个软件可以在App Store上直接购买，但是买到的是功能受限的，它不能操作外部文件。不过没有关系，再从官网上下载非沙箱版本，然后覆盖掉Application文件夹下的即可。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;安装Qiniu插件&lt;/p&gt;
-
-    &lt;p&gt;我把这个插件放到了&lt;a href=&quot;https://github.com/suyan/scripts/tree/master/Dropzone%20Action&quot;&gt;Github&lt;/a&gt;上，戳&lt;a href=&quot;https://github.com/suyan/scripts/blob/master/Dropzone%20Action/Qiniu.dzbundle.zip?raw=true&quot;&gt;这里&lt;/a&gt;下载。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;安装插件&lt;/p&gt;
-
-    &lt;p&gt;下载后的是一个zip包，把这个包解压以后双击安装即可。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;安装Qiniu的Ruby库&lt;/p&gt;
-
-    &lt;p&gt;&lt;code&gt;
- sudo gem install qiniu
-&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;启用插件&lt;/p&gt;
-
-    &lt;p&gt;从增加列表中选择我们安装好的七牛插件。&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;http://7u2ho6.com1.z0.glb.clouddn.com/tool-use-bundle.png&quot; alt=&quot;启用插件&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;然后填写配置：&lt;/p&gt;
-
+&lt;h1 id=&quot;document-datasets&quot;&gt;Document datasets&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/&quot;&gt;Libsvm Datasets&lt;/a&gt;
     &lt;ul&gt;
-      &lt;li&gt;server: 七牛上的空间名&lt;/li&gt;
-      &lt;li&gt;username: 七牛的access_key&lt;/li&gt;
-      &lt;li&gt;password: 七牛的secret_key&lt;/li&gt;
-      &lt;li&gt;remote path(可选): 本地同步图片的目录，如果你希望本地也存一份图片，选一个地址即可&lt;/li&gt;
-      &lt;li&gt;root url: 七牛的公共链接根目录&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/multiclass.html#news20&quot;&gt;news20&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#news20.binary&quot;&gt;news20.binary&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#rcv1.binary&quot;&gt;rcv1.binary&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
-
-    &lt;p&gt;&lt;img src=&quot;http://7u2ho6.com1.z0.glb.clouddn.com/tool-qiniu-access-key.png&quot; alt=&quot;access key&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;http://7u2ho6.com1.z0.glb.clouddn.com/tool-qiniu-root-url.png&quot; alt=&quot;root url&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;其他建议&lt;/h2&gt;
+&lt;h1 id=&quot;boosting&quot;&gt;Boosting&lt;/h1&gt;
 
-&lt;p&gt;利用Dropzone还有很多可利用的技巧，例如增加一个ImageOptim应用来压缩图片，然后再进行上传。&lt;/p&gt;
+&lt;h2 id=&quot;multiboosthttpwwwmultiboostorg&quot;&gt;&lt;a href=&quot;http://www.multiboost.org/&quot;&gt;Multiboost&lt;/a&gt;&lt;/h2&gt;
 
-&lt;p&gt;对于临时图片，可以直接上传到Imgur获得链接。&lt;/p&gt;
+&lt;p&gt;资源：&lt;a href=&quot;http://www.multiboost.org/download/MultiBoost-1.2.02.zip?attredirects=0&amp;amp;d=1&quot;&gt;下载链接&lt;/a&gt;、&lt;a href=&quot;http://docs.google.com/viewer?a=v&amp;amp;pid=sites&amp;amp;srcid=bXVsdGlib29zdC5vcmd8d3d3fGd4OjE5YjY0MzgwNjNlNjU1NmY&quot;&gt;使用文档&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;使用方法：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ./multiboost --stronglearner [AdaBoostMH/ArcGV/FilterBoost/VJcascade/SoftCascade]
+             --fileformat [arff/svmlight/simple]
+             --traintest &amp;lt;trainfile&amp;gt; &amp;lt;testfile&amp;gt; &amp;lt;iteration_num&amp;gt;
+             --verbose [0-5]
+             --learnertype SingleStumpLearner
+             --outputfile &amp;lt;results.dta&amp;gt;
+             --shypname shyp.xml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;adaboosthttpsgithubcomyamaguchi23adaboost&quot;&gt;&lt;a href=&quot;https://github.com/yamaguchi23/adaboost&quot;&gt;Adaboost&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;使用方法：&lt;/p&gt;
+&lt;h5&gt;Training&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ./abtrain [options] training_set_file [model_file]  
+  options:  
+    -t: type of boosting (0:discrete, 1:real, 2:gentle) [default:2]  
+    -r: the number of rounds [default:100]  
+    -v: verbose&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5&gt;Prediction&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;$ ./abpredict [options] test_set_file model_file  
+  options:  
+    -o: output score file  
+    -v: verbose&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&quot;svm&quot;&gt;SVM&lt;/h1&gt;
+
+&lt;p&gt;Documentation：（&lt;a href=&quot;http://www.csie.ntu.edu.tw/~cjlin/papers/guide/guide.pdf&quot;&gt;Libsvm&lt;/a&gt; &lt;a href=&quot;http://www.csie.ntu.edu.tw/~cjlin/papers/liblinear.pdf&quot;&gt;Liblinear&lt;/a&gt;）&lt;/p&gt;
+
+&lt;h2 id=&quot;libsvmhttpwwwcsientuedutwcjlinlibsvmindexhtml&quot;&gt;&lt;a href=&quot;http://www.csie.ntu.edu.tw/~cjlin/libsvm/index.html&quot;&gt;Libsvm&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h4&gt;Procedure&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;SVM formatting&lt;/li&gt;
+  &lt;li&gt;Scaling ( linearly to &lt;script type=&quot;math/tex&quot;&gt;[−1, +1]&lt;/script&gt; or &lt;script type=&quot;math/tex&quot;&gt;[0, 1]&lt;/script&gt; )&lt;/li&gt;
+  &lt;li&gt;Try the RBF kernel&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;K(x, y)=e^{-\gamma ||x-y||^2}&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Use cross-validation to find the best parameter &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;\gamma&lt;/script&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Try different pairs of &lt;script type=&quot;math/tex&quot;&gt;(C, \gamma)&lt;/script&gt; (grid-search)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Use the best parameter &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;\gamma&lt;/script&gt; to train the whole training set&lt;/li&gt;
+  &lt;li&gt;Test&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Example&lt;/h4&gt;
+&lt;blockquote&gt;
+
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Scaled sets with default parameters&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ./svm-scale -l -1 -u 1 -s range3 svmguide3 &amp;gt; svmguide3.scale
+$ ./svm-scale -r range3 svmguide3.t &amp;gt; svmguide3.t.scale
+$ ./svm-train svmguide3.scale
+$ ./svm-predict svmguide3.t.scale svmguide3.scale.model svmguide3.t.predict
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Scaled sets with parameter selection&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;$ python grid.py svmguide3.scale
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Using an automatic scrip&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;$ python easy.py svmguide3 svmguide3.t
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;liblinearhttpwwwcsientuedutwcjlinliblinear&quot;&gt;&lt;a href=&quot;http://www.csie.ntu.edu.tw/~cjlin/liblinear/&quot;&gt;Liblinear&lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Particularly useful for document data. (“bag-of-words” model)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The -C option efficiently conducts cross validation several times and finds&lt;br /&gt;
+the best parameter automatically.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ./train -C -s 2 news20.scale
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Train and predict&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ./train -c 1 -s 2 trainfile modelfile
+$ ./predict testfile modelfile prediction
+&lt;/code&gt;&lt;/pre&gt;
+
 </description>
       </item>
     

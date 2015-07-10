@@ -1,74 +1,104 @@
 ---
 layout: post
-title: 使用Dropzone和七牛云存储来优化博客图床
+title: Boosting及SVM的工具使用总结
 category: 工具
 tags: Blog
-keywords: Dropzone,Qiniu,七牛,图床,博客
-description: 
+keywords: svm,boosting,adaboost,multiboost
+description: Boosting及SVM的工具使用总结
 ---
+>Wanna compare the performance of ensemble methods with svm, here's a summary of the usage of some existing tools.
 
-> 之前我在用SAE的Storage作为博客图床，但是令我非常不爽的是没有一个很好的上传和获得公共链接的方法。现在总算用Dropzone和七牛把这个问题解决了，下面是我上传图片和获得URL的操作，方法再往下看。
+# Document datasets
+* [Libsvm Datasets](http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/)
+    * [news20](http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/multiclass.html#news20)
+    * [news20.binary](http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#news20.binary)
+    * [rcv1.binary](http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#rcv1.binary)
 
-![七牛操作流](http://7u2ho6.com1.z0.glb.clouddn.com/tool-qiniu-workflow.gif)
+# Boosting
 
-## 设置七牛帐号
+## [Multiboost](http://www.multiboost.org/)
 
-> [七牛](http://www.qiniu.com)是国内口碑不错的一个云存储为主的公司。它的特点应该就在图片存储上，有非常方便的上传SDK和图片处理流，用来作为博客图床非常合适，而且价格不贵，每月有免费的10G流量。
+资源：[下载链接](http://www.multiboost.org/download/MultiBoost-1.2.02.zip?attredirects=0&d=1)、[使用文档](http://docs.google.com/viewer?a=v&pid=sites&srcid=bXVsdGlib29zdC5vcmd8d3d3fGd4OjE5YjY0MzgwNjNlNjU1NmY)
 
-1. 去七牛注册帐号
+使用方法：
 
-    刚刚创建的帐号是测试帐号，完成个人认证就可以成为标准帐号，获得10G的存储空间和各10G的上传下载流量。
+    $ ./multiboost --stronglearner [AdaBoostMH/ArcGV/FilterBoost/VJcascade/SoftCascade]
+                 --fileformat [arff/svmlight/simple]
+                 --traintest <trainfile> <testfile> <iteration_num>
+                 --verbose [0-5]
+                 --learnertype SingleStumpLearner
+                 --outputfile <results.dta>
+                 --shypname shyp.xml
 
-    ![标准帐号](http://7u2ho6.com1.z0.glb.clouddn.com/tool-qiniu-normal-account.png)
+## [Adaboost](https://github.com/yamaguchi23/adaboost)
 
-2. 创建一个空间
+使用方法：
+<h5>Training</h5>  
 
-    创建空间也比较容易，记得选择公开空间。
-    
-    ![创建空间](http://7u2ho6.com1.z0.glb.clouddn.com/tool-qiniu-create-bucket.png)
-    
-## 设置Dropzone
+    $ ./abtrain [options] training_set_file [model_file]  
+      options:  
+        -t: type of boosting (0:discrete, 1:real, 2:gentle) [default:2]  
+        -r: the number of rounds [default:100]  
+        -v: verbose'
 
-> [Dropzone](https://aptonic.com/dropzone3/)是我很早就非常喜欢的一个软件。它通过拖拽的方式，增强了文件的处理流程。一直懒得给它开发插件，没想到七牛的SDK如此好用，所以今天折腾了一下搞定了。
+<h5>Prediction</h5>  
+    $ ./abpredict [options] test_set_file model_file  
+      options:  
+        -o: output score file  
+        -v: verbose'
 
-1. 下载软件
 
-    这个软件可以在App Store上直接购买，但是买到的是功能受限的，它不能操作外部文件。不过没有关系，再从官网上下载非沙箱版本，然后覆盖掉Application文件夹下的即可。
-    
-2. 安装Qiniu插件
+# SVM
 
-    我把这个插件放到了[Github](https://github.com/suyan/scripts/tree/master/Dropzone%20Action)上，戳[这里](https://github.com/suyan/scripts/blob/master/Dropzone%20Action/Qiniu.dzbundle.zip?raw=true)下载。
-    
-3. 安装插件
+Documentation：（[Libsvm](http://www.csie.ntu.edu.tw/~cjlin/papers/guide/guide.pdf) [Liblinear](http://www.csie.ntu.edu.tw/~cjlin/papers/liblinear.pdf)）
 
-    下载后的是一个zip包，把这个包解压以后双击安装即可。
-    
-4. 安装Qiniu的Ruby库
+## [Libsvm](http://www.csie.ntu.edu.tw/~cjlin/libsvm/index.html)
 
-    ```
-    sudo gem install qiniu
-    ```
-   
-5. 启用插件
+<h4>Procedure</h4>
+* SVM formatting
+* Scaling ( linearly to $$[−1, +1]$$ or $$[0, 1]$$ )
+* Try the RBF kernel
 
-    从增加列表中选择我们安装好的七牛插件。
+$$ K(x, y)=e^{-\gamma ||x-y||^2} $$
 
-    ![启用插件](http://7u2ho6.com1.z0.glb.clouddn.com/tool-use-bundle.png)
-    
-    然后填写配置：
-    
-    - server: 七牛上的空间名
-    - username: 七牛的access_key
-    - password: 七牛的secret_key    
-    - remote path(可选): 本地同步图片的目录，如果你希望本地也存一份图片，选一个地址即可
-    - root url: 七牛的公共链接根目录
-    
-    ![access key](http://7u2ho6.com1.z0.glb.clouddn.com/tool-qiniu-access-key.png)
+* Use cross-validation to find the best parameter $$C$$ and $$\gamma$$
+    * Try different pairs of $$(C, \gamma)$$ (grid-search)
+* Use the best parameter $$C$$ and $$\gamma$$ to train the whole training set
+* Test
 
-    ![root url](http://7u2ho6.com1.z0.glb.clouddn.com/tool-qiniu-root-url.png)
+<h4>Example</h4>>
 
-## 其他建议
+> Scaled sets with default parameters
 
-利用Dropzone还有很多可利用的技巧，例如增加一个ImageOptim应用来压缩图片，然后再进行上传。
+    $ ./svm-scale -l -1 -u 1 -s range3 svmguide3 > svmguide3.scale
+    $ ./svm-scale -r range3 svmguide3.t > svmguide3.t.scale
+    $ ./svm-train svmguide3.scale
+    $ ./svm-predict svmguide3.t.scale svmguide3.scale.model svmguide3.t.predict
 
-对于临时图片，可以直接上传到Imgur获得链接。
+> Scaled sets with parameter selection
+
+    $ python grid.py svmguide3.scale
+
+> Using an automatic scrip
+
+    $ python easy.py svmguide3 svmguide3.t
+
+## [Liblinear](http://www.csie.ntu.edu.tw/~cjlin/liblinear/)
+
+> Particularly useful for document data. ("bag-of-words" model)
+
+> The -C option efficiently conducts cross validation several times and finds
+the best parameter automatically.
+
+    $ ./train -C -s 2 news20.scale
+
+> Train and predict
+
+    $ ./train -c 1 -s 2 trainfile modelfile
+    $ ./predict testfile modelfile prediction
+
+
+
+
+
+

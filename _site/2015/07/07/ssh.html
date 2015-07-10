@@ -5,10 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <!--[if lte IE 9]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
 
-<title>404 Not Found Error | 柯均洁的博客</title>
+<title>ssh使用方法总结 | 柯均洁的博客</title>
 <meta name="author" content="柯均洁">
 
+  <meta name="keywords" content="ssh,常用命令,自动登录">
 
+
+
+  <meta name="description " content="ssh使用方法总结">
 
 
 <link rel="shortcut icon" href="http://img6.douban.com/view/photo/photo/public/p2254493685.jpg" />
@@ -63,8 +67,53 @@ MathJax.Hub.Config({
     <div id="post">
       <div id="pjax">
         <article id="post__content">
-  <h1 id="post__title">404 Not Found Error</h1>
+  <h1 id="post__title" data-identifier="20150707">ssh使用方法总结</h1>
+  <h2 id="section">常用的命令</h2>
+
+<ol>
+  <li>scp：可以在本地和远程传输文件</li>
+  <li>wget：直接通过链接下载文件</li>
+  <li>htop：查看任务运行情况</li>
+  <li>tmux：在tmux里面跑程序不用担心ssh连接
+    <ul>
+      <li>tmux attach：重新回到界面</li>
+    </ul>
+  </li>
+  <li>nohup：让程序在关闭窗口（切换SSH连接）的时候程序还能继续在后台运行。<br />
+ nohup Command [Arg…] [&amp;]</li>
+</ol>
+
+<h2 id="ssh">ssh自动登录（无需密码）</h2>
+
+<p>生成密钥对</p>
+
+<pre><code>$ ssh-keygen -t rsa
+</code></pre>
+
+<p>然后改一下 .ssh 目录的权限</p>
+
+<pre><code>$chmod 755 ~/.ssh
+</code></pre>
+
+<p>把这个密钥对中的公共密钥复制到你要访问的机器上去，并保存为 ~/.ssh/authorized_keys</p>
+
+<pre><code>$ scp ~/.ssh/id_rsa.pub junjiek@blahblah:~/.ssh/authorized_keys
+</code></pre>
+
+
 </article> <!-- end #post__content -->
+
+<div id="post__share">
+  <a id="icon-twitter" class="fontello" href="https://twitter.com/intent/tweet?url=http://junjiek.com/2015/07/07/ssh.html&text=ssh使用方法总结" target="_blank"></a>
+  <a id="icon-cc" class="fontello" href="http://creativecommons.org/licenses/by-nc-sa/3.0" target="_blank"></a>
+  <a id="icon-weibo" class="fontello" href="http://v.t.sina.com.cn/share/share.php?url=http://junjiek.com/2015/07/07/ssh.html&title=ssh使用方法总结" target="_blank"></a>
+</div> <!-- end #post__share -->
+<div id="disqus_thread" name="junjiekcom">
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink" target="_blank">Loading Disqus comments...</a>
+</div>
+
+
         <p id="copyright">Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>&nbsp;&nbsp;|&nbsp;&nbsp;Theme <a href="https://github.com/P233/3-Jekyll" target="_blank">3-Jekyll</a>&nbsp;&nbsp;|&nbsp;&nbsp;Hosted on <a href="https://pages.github.com" target="_blank">Github</a></p>
       </div> <!-- end #pjax -->
 
