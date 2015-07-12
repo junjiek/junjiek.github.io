@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<!--[if lte IE 9]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
+
+<title>Adaboost/Multiboost/Liblinear Classification Experiment Results | 柯均洁的博客</title>
+<meta name="author" content="柯均洁">
+
+  <meta name="keywords" content="svm,boosting,adaboost,multiboost">
+
+
+
+  <meta name="description " content="Adaboost/Multiboost/Liblinear Classification Experiment Results">
+
+
+<link rel="shortcut icon" href="http://img6.douban.com/view/photo/photo/public/p2254493685.jpg" />
+
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+
+<link href="/pages/rss.xml" rel="alternate" title="柯均洁的博客" type="application/atom+xml">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+                  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+                          });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </head>
+  <body>
+    <aside id="sidebar">
+  <nav id="tags">
+    <a href="/index.html" id="avatar" style="background-image:url(http://ww1.sinaimg.cn/thumb180/6a5b2847jw1dstk863du5j.jpg)"></a>
+
+    <ul id="tags__ul">
+      <li id="pl__all" class="tags__li tags-btn active">所有文章</li>
+       
+        <li id="工具" class="tags__li tags-btn">工具</li>
+      
+    </ul>
+
+    <div id="tags__bottom">
+      <a href="mailto:kjj3300@163.com" id="icon-email" class="tags-btn fontello"></a>
+      <a href="/pages/rss.xml" id="icon-feed" class="tags-btn fontello"></a>
+    </div>
+  </nav> <!-- end #tags -->
+
+  <div id="posts-list">
+    <form action="" id="search-form">
+      <a href="/index.html" id="mobile-avatar" style="background-image:url(http://ww1.sinaimg.cn/thumb180/6a5b2847jw1dstk863du5j.jpg)"></a>
+      <!-- NOTE: input field is disabled by default -->
+      <input id="search-input" type="text" placeholder="Search..." disabled >
+    </form>
+
+    <nav id="pl__container">
+    
+      <a class="工具 pl__all" href="/2015/07/12/bootsing-svm-insights.html"><span class="pl__circle"></span><span class="pl__title">Adaboost/Multiboost/Liblinear Classification Experiment Results</span><span class="pl__date">Jul 2015</span></a>
+    
+      <a class="工具 pl__all" href="/2015/07/07/ssh.html"><span class="pl__circle"></span><span class="pl__title">ssh使用方法总结</span><span class="pl__date">Jul 2015</span></a>
+    
+      <a class="工具 pl__all" href="/2015/07/06/boosting-and-svm-tools.html"><span class="pl__circle"></span><span class="pl__title">Boosting及SVM的工具使用总结</span><span class="pl__date">Jul 2015</span></a>
+    
+    </nav>
+  </div> <!-- end #posts-list -->
+</aside> <!-- end #sidebar -->
+    <div id="post">
+      <div id="pjax">
+        <article id="post__content">
+  <h1 id="post__title" data-identifier="20150712">Adaboost/Multiboost/Liblinear Classification Experiment Results</h1>
+  <blockquote>
+  <p>Test and compare the existing svm and boosting packages from two perspectives:<br />
+1. Running time and accuracy with different size of training set<br />
+2. Running time and accuracy with different size of feature</p>
+</blockquote>
+
+<h2 id="different-sample-size">1. Different sample size</h2>
+
+<h3 id="descriptions">1.1 Descriptions</h3>
+<ul>
+  <li>Dataset: <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#rcv1.binary">rcv1.binary</a>
+    <ul>
+      <li>Training set: Randomly sample 0.1, 0.2, …, 1 among <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/rcv1_train.binary.bz2">rcv1_train.binary</a> to be the training set</li>
+      <li>Test set: Fixed subset (0.1 random sample) of <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/rcv1_test.binary.bz2">rcv1_test.binary</a></li>
+    </ul>
+  </li>
+  <li>Measurement:
+    <ul>
+      <li>Prediction accuracy on test set</li>
+      <li>Training time</li>
+    </ul>
+  </li>
+  <li>Parameters:
+    <ul>
+      <li>Liblinear: Use the -C option to find the best c using cross-validation, use the best c to train the model and report the training time and accuracy on the test set.</li>
+      <li>Multiboost:
+        <ul>
+          <li>BaseLearner: SingleSparseStumpLearner (much faster than the SingleStumpLearner)</li>
+          <li>Rounds: 50</li>
+        </ul>
+      </li>
+      <li>Adaboost:
+        <ul>
+          <li>Type: gentle</li>
+          <li>Rounds: 50</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="results">1.2 Results</h3>
+
+<h5>All</h5>
+
+<p><img src="http://7xk717.com1.z0.glb.clouddn.com/samplesize_lib_ada_mul.png" alt="samplesize_all" /></p>
+
+<h5>Liblinear</h5>
+
+<p><img src="http://7xk717.com1.z0.glb.clouddn.com/samplesize_liblinear.png" alt="samplesize_liblinear" /></p>
+
+<h5>Adaboost</h5>
+
+<p><img src="http://7xk717.com1.z0.glb.clouddn.com/samplesize_adaboost.png" alt="samplesize_adaboost" /></p>
+
+<h5>Multiboost</h5>
+<p><img src="http://7xk717.com1.z0.glb.clouddn.com/samplesize_multiboost.png" alt="samplesize_multiboost" /></p>
+
+<h3 id="conclusions-and-analysis">1.3 Conclusions and Analysis</h3>
+<ul>
+  <li>Liblinear performs the best with the highest accuracy rate and minimum running time.</li>
+  <li>For all 3 algorithms, the testing accuracy is converging and the running time increases linearly with the growth of training sample size.</li>
+  <li>For those two boosting algorithms
+    <ul>
+      <li>Adaboost performs better in prediction accuracy.</li>
+      <li>Multiboost takes less time to train, but it also seems to take more time to run the test especially when the test set is large. Though I did not record the testing time.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="different-feature-size">2. Different feature size</h2>
+
+<h3 id="descriptions-1">2.1 Descriptions</h3>
+<ul>
+  <li>Dataset: <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#rcv1.binary">rcv1.binary</a>
+    <ul>
+      <li>Traing set:
+        <ul>
+          <li>Randomly sample 0.3 among <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/rcv1_train.binary.bz2">rcv1_train.binary</a></li>
+          <li>For each feature, calculate the p-value of the two-sample t-test between the positive and negative samples.</li>
+          <li>Sort features by desendant p-value</li>
+          <li>Select the first 0.1, 0.2, …, 1 features to generate new training data</li>
+        </ul>
+      </li>
+      <li>Test set:
+        <ul>
+          <li>Use one fixed test set: 0.1 sample from <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/rcv1_test.binary.bz2">rcv1_test.binary</a></li>
+          <li>For each new training data, choose same features of the test set to generate new test data.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Measurement:
+    <ul>
+      <li>Prediction accuracy on test set</li>
+      <li>Running time</li>
+    </ul>
+  </li>
+  <li>Parameters:
+    <ul>
+      <li>Same as previous section</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="results-1">2.2 Results</h3>
+
+<h5>All</h5>
+
+<p><img src="http://7xk717.com1.z0.glb.clouddn.com/featuresize_lib_ada_mul.png" alt="featuresize_all" /></p>
+
+<h5>Liblinear</h5>
+
+<p><img src="http://7xk717.com1.z0.glb.clouddn.com/featuresize_liblinear.png" alt="featuresize_liblinear" /></p>
+
+<h5>Adaboost</h5>
+
+<p><img src="http://7xk717.com1.z0.glb.clouddn.com/featuresize_adaboost.png" alt="featuresize_adaboost" /></p>
+
+<h5>Multiboost</h5>
+
+<p><img src="http://7xk717.com1.z0.glb.clouddn.com/featuresize_multiboost.png" alt="featuresize_multiboost" /></p>
+
+<h3 id="conclusions-and-analysis-1">2.3 Conclusions and Analysis</h3>
+<ul>
+  <li>Liblinear performs the best with the highest accuracy rate and minimum running time.</li>
+  <li>The testing accuracy and the running time of liblinear both seem to be converging.</li>
+  <li>For those two boosting algorithms
+    <ul>
+      <li>Running time grows linearly but the <strong>testing accuracy remains unchanged</strong> for both algorithms, which is somewhat weird and needs further examinations.</li>
+    </ul>
+  </li>
+</ul>
+
+</article> <!-- end #post__content -->
+
+<div id="post__share">
+  <a id="icon-twitter" class="fontello" href="https://twitter.com/intent/tweet?url=http://junjiek.com/2015/07/12/bootsing-svm-insights.html&text=Adaboost/Multiboost/Liblinear Classification Experiment Results" target="_blank"></a>
+  <a id="icon-cc" class="fontello" href="http://creativecommons.org/licenses/by-nc-sa/3.0" target="_blank"></a>
+  <a id="icon-weibo" class="fontello" href="http://v.t.sina.com.cn/share/share.php?url=http://junjiek.com/2015/07/12/bootsing-svm-insights.html&title=Adaboost/Multiboost/Liblinear Classification Experiment Results" target="_blank"></a>
+</div> <!-- end #post__share -->
+<div id="disqus_thread" name="junjiekcom">
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink" target="_blank">Loading Disqus comments...</a>
+</div>
+
+
+        <p id="copyright">Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>&nbsp;&nbsp;|&nbsp;&nbsp;Theme <a href="https://github.com/P233/3-Jekyll" target="_blank">3-Jekyll</a>&nbsp;&nbsp;|&nbsp;&nbsp;Hosted on <a href="https://pages.github.com" target="_blank">Github</a></p>
+      </div> <!-- end #pjax -->
+
+      <div id="post__toc-trigger">
+        <div id="post__toc">
+          <span id="post__toc-title">Table of Contents</span>
+          <ul id="post__toc-ul"></ul>
+        </div>
+      </div>
+    </div> <!-- end #post -->
+
+    <button id="js-fullscreen"><span id="icon-arrow" class="fontello"></span></button>
+
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.pjax.js"></script>
+<script src="/assets/js/nprogress.js"></script>
+<script src="/assets/js/script.js"></script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-64827079-1', 'junjiek.com');
+  ga('send', 'pageview');
+</script>
+  </body>
+</html>

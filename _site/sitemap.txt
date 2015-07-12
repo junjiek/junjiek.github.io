@@ -9,6 +9,8 @@
 
 
 
+  /2015/07/12/bootsing-svm-insights.html
+
   /2015/07/07/ssh.html
 
   /2015/07/06/boosting-and-svm-tools.html
