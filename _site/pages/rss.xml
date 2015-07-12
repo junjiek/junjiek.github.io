@@ -177,6 +177,10 @@ the best parameter automatically.&lt;/p&gt;
 $ ./predict testfile modelfile prediction
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;The -q option disable verbose&lt;/p&gt;
+&lt;/blockquote&gt;
+
 </description>
       </item>
     

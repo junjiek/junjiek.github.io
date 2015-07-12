@@ -97,6 +97,8 @@ the best parameter automatically.
     $ ./train -c 1 -s 2 trainfile modelfile
     $ ./predict testfile modelfile prediction
 
+> The -q option disable verbose
+
 
 
 
