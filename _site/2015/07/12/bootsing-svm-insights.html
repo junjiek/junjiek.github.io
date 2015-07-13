@@ -195,13 +195,14 @@ MathJax.Hub.Config({
 
 <h3 id="conclusions-and-analysis-1">2.3 Conclusions and Analysis</h3>
 <ul>
-  <li>Liblinear performs the best with the highest accuracy rate and minimum running time.</li>
-  <li>The testing accuracy and the running time of liblinear both seem to be converging.</li>
+  <li>Liblinear performs the best with the highest accuracy rate and minimum running time. Its testing accuracy is converging. Its running time is converging intially, but when feature size reaches <strong>26k</strong> it suddenly jumps up and then decreses gradually.</li>
   <li>For those two boosting algorithms
     <ul>
-      <li>Running time grows linearly but the <strong>testing accuracy remains unchanged</strong> for both algorithms, which is somewhat weird and needs further examinations.</li>
+      <li>Running time grows linearly</li>
+      <li><strong>Testing accuracy behaves like a step curve</strong>, the accuracy remains almost <strong>unchanged</strong> for both algorithms initially, but when feature size reaches <strong>26k</strong>, it jumps up suddenly.</li>
     </ul>
   </li>
+  <li>It seems that interesting things have happened when feature size reaches 26k. Further examinations and experiments on other datasets are needed to find out the reason.</li>
 </ul>
 
 </article> <!-- end #post__content -->

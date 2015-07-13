@@ -135,13 +135,14 @@
 
 &lt;h3 id=&quot;conclusions-and-analysis-1&quot;&gt;2.3 Conclusions and Analysis&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;Liblinear performs the best with the highest accuracy rate and minimum running time.&lt;/li&gt;
-  &lt;li&gt;The testing accuracy and the running time of liblinear both seem to be converging.&lt;/li&gt;
+  &lt;li&gt;Liblinear performs the best with the highest accuracy rate and minimum running time. Its testing accuracy is converging. Its running time is converging intially, but when feature size reaches &lt;strong&gt;26k&lt;/strong&gt; it suddenly jumps up and then decreses gradually.&lt;/li&gt;
   &lt;li&gt;For those two boosting algorithms
     &lt;ul&gt;
-      &lt;li&gt;Running time grows linearly but the &lt;strong&gt;testing accuracy remains unchanged&lt;/strong&gt; for both algorithms, which is somewhat weird and needs further examinations.&lt;/li&gt;
+      &lt;li&gt;Running time grows linearly&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Testing accuracy behaves like a step curve&lt;/strong&gt;, the accuracy remains almost &lt;strong&gt;unchanged&lt;/strong&gt; for both algorithms initially, but when feature size reaches &lt;strong&gt;26k&lt;/strong&gt;, it jumps up suddenly.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
+  &lt;li&gt;It seems that interesting things have happened when feature size reaches 26k. Further examinations and experiments on other datasets are needed to find out the reason.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
       </item>

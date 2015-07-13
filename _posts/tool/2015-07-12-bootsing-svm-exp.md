@@ -92,7 +92,8 @@ description: Adaboost/Multiboost/Liblinear Classification Experiment Results
 ![featuresize_multiboost](http://7xk717.com1.z0.glb.clouddn.com/featuresize_multiboost.png)
 
 ### 2.3 Conclusions and Analysis
-* Liblinear performs the best with the highest accuracy rate and minimum running time.
-* The testing accuracy and the running time of liblinear both seem to be converging.
+* Liblinear performs the best with the highest accuracy rate and minimum running time. Its testing accuracy is converging. Its running time is converging intially, but when feature size reaches **26k** it suddenly jumps up and then decreses gradually.
 * For those two boosting algorithms
-    * Running time grows linearly but the **testing accuracy remains unchanged** for both algorithms, which is somewhat weird and needs further examinations. 
+    * Running time grows linearly. For adaboost, running time vibrates when feature size is large.
+    * **Testing accuracy behaves like a step curve**, the accuracy remains almost **unchanged** for both algorithms initially, but when feature size reaches **26k**, it jumps up suddenly.
+* It seems that interesting things have happened when feature size reaches 26k. Further examinations and experiments on other datasets are needed to find out the reasons. 
