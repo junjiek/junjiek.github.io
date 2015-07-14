@@ -57,7 +57,9 @@ MathJax.Hub.Config({
 
     <nav id="pl__container">
     
-      <a class="工具 pl__all" href="/2015/07/12/bootsing-svm-insights.html"><span class="pl__circle"></span><span class="pl__title">Adaboost/Multiboost/Liblinear Classification Experiment Results</span><span class="pl__date">Jul 2015</span></a>
+      <a class="工具 pl__all" href="/2015/07/13/svm-fest-exp.html"><span class="pl__circle"></span><span class="pl__title">Liblinear/Boosting/Random Forest Classification Experiment Results</span><span class="pl__date">Jul 2015</span></a>
+    
+      <a class="工具 pl__all" href="/2015/07/12/bootsing-svm-exp.html"><span class="pl__circle"></span><span class="pl__title">Adaboost/Multiboost/Liblinear Classification Experiment Results</span><span class="pl__date">Jul 2015</span></a>
     
       <a class="工具 pl__all" href="/2015/07/07/ssh.html"><span class="pl__circle"></span><span class="pl__title">ssh使用方法总结</span><span class="pl__date">Jul 2015</span></a>
     
@@ -72,8 +74,8 @@ MathJax.Hub.Config({
   <h1 id="post__title" data-identifier="20150712">Adaboost/Multiboost/Liblinear Classification Experiment Results</h1>
   <blockquote>
   <p>Test and compare the existing svm and boosting packages from two perspectives:<br />
-1. Running time and accuracy with different size of training set<br />
-2. Running time and accuracy with different size of feature</p>
+1. Training time and accuracy with different size of training set<br />
+2. Training time and accuracy with different size of feature</p>
 </blockquote>
 
 <h2 id="different-sample-size">1. Different sample size</h2>
@@ -130,8 +132,8 @@ MathJax.Hub.Config({
 
 <h3 id="conclusions-and-analysis">1.3 Conclusions and Analysis</h3>
 <ul>
-  <li>Liblinear performs the best with the highest accuracy rate and minimum running time.</li>
-  <li>For all 3 algorithms, the testing accuracy is converging and the running time increases linearly with the growth of training sample size.</li>
+  <li>Liblinear performs the best with the highest accuracy rate and minimum training time.</li>
+  <li>For all 3 algorithms, the test accuracy is converging and the training time increases linearly with the growth of training sample size.</li>
   <li>For those two boosting algorithms
     <ul>
       <li>Adaboost performs better in prediction accuracy.</li>
@@ -146,7 +148,7 @@ MathJax.Hub.Config({
 <ul>
   <li>Dataset: <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#rcv1.binary">rcv1.binary</a>
     <ul>
-      <li>Traing set:
+      <li>Training set:
         <ul>
           <li>Randomly sample 0.3 among <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/rcv1_train.binary.bz2">rcv1_train.binary</a></li>
           <li>For each feature, calculate the p-value of the two-sample t-test between the positive and negative samples.</li>
@@ -165,7 +167,7 @@ MathJax.Hub.Config({
   <li>Measurement:
     <ul>
       <li>Prediction accuracy on test set</li>
-      <li>Running time</li>
+      <li>Training time</li>
     </ul>
   </li>
   <li>Parameters:
@@ -195,22 +197,22 @@ MathJax.Hub.Config({
 
 <h3 id="conclusions-and-analysis-1">2.3 Conclusions and Analysis</h3>
 <ul>
-  <li>Liblinear performs the best with the highest accuracy rate and minimum running time. Its testing accuracy is converging. Its running time is converging intially, but when feature size reaches <strong>26k</strong> it suddenly jumps up and then decreses gradually.</li>
+  <li>Liblinear performs the best with the highest accuracy rate and minimum training time. Its test accuracy is converging. Its training time is converging intially, but when feature size reaches <strong>26k</strong> it suddenly jumps up and then decreses gradually.</li>
   <li>For those two boosting algorithms
     <ul>
-      <li>Running time grows linearly</li>
-      <li><strong>Testing accuracy behaves like a step curve</strong>, the accuracy remains almost <strong>unchanged</strong> for both algorithms initially, but when feature size reaches <strong>26k</strong>, it jumps up suddenly.</li>
+      <li>training time grows linearly. For adaboost, training time vibrates when feature size is large.</li>
+      <li><strong>Test accuracy behaves like a step curve</strong>, the accuracy remains almost <strong>unchanged</strong> for both algorithms initially, but when feature size reaches <strong>26k</strong>, it jumps up suddenly.</li>
     </ul>
   </li>
-  <li>It seems that interesting things have happened when feature size reaches 26k. Further examinations and experiments on other datasets are needed to find out the reason.</li>
+  <li>It seems that interesting things have happened when feature size reaches 26k. Further examinations and experiments on other datasets are needed to find out the reasons.</li>
 </ul>
 
 </article> <!-- end #post__content -->
 
 <div id="post__share">
-  <a id="icon-twitter" class="fontello" href="https://twitter.com/intent/tweet?url=http://junjiek.com/2015/07/12/bootsing-svm-insights.html&text=Adaboost/Multiboost/Liblinear Classification Experiment Results" target="_blank"></a>
+  <a id="icon-twitter" class="fontello" href="https://twitter.com/intent/tweet?url=http://junjiek.com/2015/07/12/bootsing-svm-exp.html&text=Adaboost/Multiboost/Liblinear Classification Experiment Results" target="_blank"></a>
   <a id="icon-cc" class="fontello" href="http://creativecommons.org/licenses/by-nc-sa/3.0" target="_blank"></a>
-  <a id="icon-weibo" class="fontello" href="http://v.t.sina.com.cn/share/share.php?url=http://junjiek.com/2015/07/12/bootsing-svm-insights.html&title=Adaboost/Multiboost/Liblinear Classification Experiment Results" target="_blank"></a>
+  <a id="icon-weibo" class="fontello" href="http://v.t.sina.com.cn/share/share.php?url=http://junjiek.com/2015/07/12/bootsing-svm-exp.html&title=Adaboost/Multiboost/Liblinear Classification Experiment Results" target="_blank"></a>
 </div> <!-- end #post__share -->
 <div id="disqus_thread" name="junjiekcom">
   <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

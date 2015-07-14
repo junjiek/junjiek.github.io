@@ -8,8 +8,8 @@ description: Adaboost/Multiboost/Liblinear Classification Experiment Results
 ---
 
 > Test and compare the existing svm and boosting packages from two perspectives:
-> 1. Running time and accuracy with different size of training set
-> 2. Running time and accuracy with different size of feature
+> 1. Training time and accuracy with different size of training set
+> 2. Training time and accuracy with different size of feature
 
 ## 1. Different sample size
 
@@ -48,8 +48,8 @@ description: Adaboost/Multiboost/Liblinear Classification Experiment Results
 ![samplesize_multiboost](http://7xk717.com1.z0.glb.clouddn.com/samplesize_multiboost.png)
 
 ### 1.3 Conclusions and Analysis
-* Liblinear performs the best with the highest accuracy rate and minimum running time.
-* For all 3 algorithms, the testing accuracy is converging and the running time increases linearly with the growth of training sample size.
+* Liblinear performs the best with the highest accuracy rate and minimum training time.
+* For all 3 algorithms, the test accuracy is converging and the training time increases linearly with the growth of training sample size.
 * For those two boosting algorithms
     * Adaboost performs better in prediction accuracy.
     * Multiboost takes less time to train, but it also seems to take more time to run the test especially when the test set is large. Though I did not record the testing time.
@@ -58,7 +58,7 @@ description: Adaboost/Multiboost/Liblinear Classification Experiment Results
 
 ### 2.1 Descriptions
 * Dataset: [rcv1.binary](http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#rcv1.binary)
-    - Traing set:
+    - Training set:
         * Randomly sample 0.3 among [rcv1_train.binary](http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/rcv1_train.binary.bz2)
         * For each feature, calculate the p-value of the two-sample t-test between the positive and negative samples.
         * Sort features by desendant p-value
@@ -69,7 +69,7 @@ description: Adaboost/Multiboost/Liblinear Classification Experiment Results
         
 * Measurement:
     * Prediction accuracy on test set
-    * Running time
+    * Training time
 * Parameters:
     * Same as previous section
 
@@ -92,8 +92,8 @@ description: Adaboost/Multiboost/Liblinear Classification Experiment Results
 ![featuresize_multiboost](http://7xk717.com1.z0.glb.clouddn.com/featuresize_multiboost.png)
 
 ### 2.3 Conclusions and Analysis
-* Liblinear performs the best with the highest accuracy rate and minimum running time. Its testing accuracy is converging. Its running time is converging intially, but when feature size reaches **26k** it suddenly jumps up and then decreses gradually.
+* Liblinear performs the best with the highest accuracy rate and minimum training time. Its test accuracy is converging. Its training time is converging intially, but when feature size reaches **26k** it suddenly jumps up and then decreses gradually.
 * For those two boosting algorithms
-    * Running time grows linearly. For adaboost, running time vibrates when feature size is large.
-    * **Testing accuracy behaves like a step curve**, the accuracy remains almost **unchanged** for both algorithms initially, but when feature size reaches **26k**, it jumps up suddenly.
+    * training time grows linearly. For adaboost, training time vibrates when feature size is large.
+    * **Test accuracy behaves like a step curve**, the accuracy remains almost **unchanged** for both algorithms initially, but when feature size reaches **26k**, it jumps up suddenly.
 * It seems that interesting things have happened when feature size reaches 26k. Further examinations and experiments on other datasets are needed to find out the reasons. 

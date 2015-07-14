@@ -57,7 +57,9 @@ MathJax.Hub.Config({
 
     <nav id="pl__container">
     
-      <a class="工具 pl__all" href="/2015/07/12/bootsing-svm-insights.html"><span class="pl__circle"></span><span class="pl__title">Adaboost/Multiboost/Liblinear Classification Experiment Results</span><span class="pl__date">Jul 2015</span></a>
+      <a class="工具 pl__all" href="/2015/07/13/svm-fest-exp.html"><span class="pl__circle"></span><span class="pl__title">Liblinear/Boosting/Random Forest Classification Experiment Results</span><span class="pl__date">Jul 2015</span></a>
+    
+      <a class="工具 pl__all" href="/2015/07/12/bootsing-svm-exp.html"><span class="pl__circle"></span><span class="pl__title">Adaboost/Multiboost/Liblinear Classification Experiment Results</span><span class="pl__date">Jul 2015</span></a>
     
       <a class="工具 pl__all" href="/2015/07/07/ssh.html"><span class="pl__circle"></span><span class="pl__title">ssh使用方法总结</span><span class="pl__date">Jul 2015</span></a>
     
@@ -119,6 +121,32 @@ MathJax.Hub.Config({
   options:  
     -o: output score file  
     -v: verbose'
+</code></pre>
+
+<h2 id="festhttplowranknetnikosfest"><a href="http://lowrank.net/nikos/fest/">Fest</a></h2>
+
+<p>使用方法</p>
+<h5>Training</h5>
+
+<pre><code>festlearn [options] data model
+        Available options:
+            -c &lt;int&gt;  : committee type:
+                        1 bagging
+                        2 boosting (default)
+                        3 random forest
+            -d &lt;int&gt;  : maximum depth of the trees (default: 1000)
+            -e        : report out of bag estimates (default: no)
+            -n &lt;float&gt;: relative weight for the negative class (default: 1)
+            -p &lt;float&gt;: parameter for random forests: (default: 1)
+                        (ratio of features considered over sqrt(features))
+            -t &lt;int&gt;  : number of trees (default: 100)
+</code></pre>
+
+<h5>Prediction</h5>
+
+<pre><code>festclassify [options] data model predictions
+        Available options:
+             -t &lt;int&gt;  : number of trees to use (default: 0 = all)
 </code></pre>
 
 <h1 id="svm">SVM</h1>

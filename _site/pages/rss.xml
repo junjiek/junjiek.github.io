@@ -6,14 +6,175 @@
     <description>柯均洁的博客</description>
     
       <item>
+        <title>Liblinear/Boosting/Random Forest Classification Experiment Results</title>
+        <link>http://junjiek.com/2015/07/13/svm-fest-exp.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2015/07/13/svm-fest-exp.html</guid>
+        <pubDate>Mon, 13 Jul 2015 00:00:00 -0400</pubDate>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;Test and compare the existing svm and boosting packages from two perspectives:&lt;br /&gt;
+1. Training time and accuracy with different size of training set&lt;br /&gt;
+2. Training time and accuracy with different size of feature&lt;/p&gt;
+
+  &lt;p&gt;After the &lt;a href=&quot;http://localhost:4000/2015/07/12/bootsing-svm-exp.html&quot;&gt;experiment using adaboost and multiboost&lt;/a&gt;, I’ve found another ensemble package (&lt;a href=&quot;http://lowrank.net/nikos/fest/&quot;&gt;FEST&lt;/a&gt;) for sparse high dimensional data.&lt;br /&gt;
+This package outperforms previous boosting packages both in training time and test accuracy. The corresbonding paper seem to be &lt;a href=&quot;http://icml2008.cs.helsinki.fi/papers/632.pdf&quot;&gt;Caruana R, Karampatziakis N, Yessenalina A. An empirical evaluation of supervised learning in high dimensions[C]. &lt;em&gt;ICML&lt;/em&gt;. ACM, 2008&lt;/a&gt;&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;different-sample-size&quot;&gt;1. Different sample size&lt;/h2&gt;
+
+&lt;h3 id=&quot;descriptions&quot;&gt;1.1 Descriptions&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Dataset: &lt;a href=&quot;http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#rcv1.binary&quot;&gt;rcv1.binary&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Training set: Randomly sample 0.1, 0.2, …, 1 among &lt;a href=&quot;http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/rcv1_train.binary.bz2&quot;&gt;rcv1_train.binary&lt;/a&gt; to be the training set&lt;/li&gt;
+      &lt;li&gt;Test set: Fixed subset (0.1 random sample) of &lt;a href=&quot;http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/rcv1_test.binary.bz2&quot;&gt;rcv1_test.binary&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Measurement:
+    &lt;ul&gt;
+      &lt;li&gt;Prediction accuracy on test set&lt;/li&gt;
+      &lt;li&gt;Training time&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Parameters:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://www.csie.ntu.edu.tw/~cjlin/liblinear/&quot;&gt;Liblinear&lt;/a&gt;: Use the -C option to find the best c using cross-validation, use the best c to train the model and report the training time and accuracy on the test set.&lt;/li&gt;
+      &lt;li&gt;Boosting in &lt;a href=&quot;http://lowrank.net/nikos/fest/&quot;&gt;FEST&lt;/a&gt; Packages:
+        &lt;ul&gt;
+          &lt;li&gt;Maximum depth of the trees: &lt;strong&gt;5&lt;/strong&gt; (when maximun depth is large, the training time is too long and the accuracy does not seem to be increaseing)&lt;/li&gt;
+          &lt;li&gt;Rounds: 100&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Random forest in &lt;a href=&quot;http://lowrank.net/nikos/fest/&quot;&gt;FEST&lt;/a&gt; Packages:
+        &lt;ul&gt;
+          &lt;li&gt;Maximum depth of the trees: &lt;strong&gt;100&lt;/strong&gt; (random forest does not work so well when maximun depth is small)&lt;/li&gt;
+          &lt;li&gt;Rounds (Number of trees): 100&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;results&quot;&gt;1.2 Results&lt;/h3&gt;
+
+&lt;h5&gt;All&lt;/h5&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xk717.com1.z0.glb.clouddn.com/samplesize_lib_fest.png&quot; alt=&quot;samplesize_lib_fest&quot; /&gt;&lt;/p&gt;
+
+&lt;h5&gt;Liblinear&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xk717.com1.z0.glb.clouddn.com/samplesize_liblinear2.png&quot; alt=&quot;samplesize_liblinear2&quot; /&gt;&lt;/p&gt;
+
+&lt;h5&gt;Boosting in FEST&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xk717.com1.z0.glb.clouddn.com/samplesize_boosting.png&quot; alt=&quot;samplesize_boosting&quot; /&gt;&lt;/p&gt;
+
+&lt;h5&gt;Random Forest in FEST&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xk717.com1.z0.glb.clouddn.com/samplesize_randomforest.png&quot; alt=&quot;samplesize_randomforest&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusions-and-analysis&quot;&gt;1.3 Conclusions and Analysis&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Liblinear still performs the best with the highest accuracy rate and minimum training time, followed by FEST random forest and FEST boosting.&lt;/li&gt;
+  &lt;li&gt;Test accuracy:
+    &lt;ul&gt;
+      &lt;li&gt;The test accuracy for all three algorithms are fairly closed to each other (within 2% difference).&lt;/li&gt;
+      &lt;li&gt;For all 3 algorithms, the test accuracy is converging. The increasing speed is relatively fast when sample size is smaller than 2k, and slows down afterwards.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Training time:
+    &lt;ul&gt;
+      &lt;li&gt;Random Forest and Liblinear is much faster than boosting.&lt;/li&gt;
+      &lt;li&gt;For Liblinear and Boosting, training time increases almost linearly with the growth of training sample size.&lt;/li&gt;
+      &lt;li&gt;For Random Forest, the training time curve is slightly quadratic.&lt;/li&gt;
+      &lt;li&gt;When sample size reaches 17k, training time for all 3 algorithms seems to be vibrating a little bit, especially liblinear.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;different-feature-size&quot;&gt;2. Different feature size&lt;/h2&gt;
+
+&lt;h3 id=&quot;descriptions-1&quot;&gt;2.1 Descriptions&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Dataset: &lt;a href=&quot;http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#rcv1.binary&quot;&gt;rcv1.binary&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Training set:
+        &lt;ul&gt;
+          &lt;li&gt;Randomly sample 0.3 among &lt;a href=&quot;http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/rcv1_train.binary.bz2&quot;&gt;rcv1_train.binary&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;For each feature, calculate the p-value of the two-sample t-test between the positive and negative samples.&lt;/li&gt;
+          &lt;li&gt;Sort features by desendant p-value&lt;/li&gt;
+          &lt;li&gt;Select the first 0.1, 0.2, …, 1 features to generate new training data&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Test set:
+        &lt;ul&gt;
+          &lt;li&gt;Use one fixed test set: 0.1 sample from &lt;a href=&quot;http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/rcv1_test.binary.bz2&quot;&gt;rcv1_test.binary&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;For each new training data, choose same features of the test set to generate new test data.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Measurement:
+    &lt;ul&gt;
+      &lt;li&gt;Prediction accuracy on test set&lt;/li&gt;
+      &lt;li&gt;Training time&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Parameters:
+    &lt;ul&gt;
+      &lt;li&gt;Same as previous section&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;results-1&quot;&gt;2.2 Results&lt;/h3&gt;
+
+&lt;h5&gt;All&lt;/h5&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://7xk717.com1.z0.glb.clouddn.com/featuresize_lib_fest.png&quot; alt=&quot;featuresize_lib_fest&quot; /&gt;&lt;/p&gt;
+
+&lt;h5&gt;Liblinear&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xk717.com1.z0.glb.clouddn.com/featuresize_liblinear.png&quot; alt=&quot;featuresize_liblinear2&quot; /&gt;&lt;/p&gt;
+
+&lt;h5&gt;Boosting in FEST&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xk717.com1.z0.glb.clouddn.com/featuresize_boosting.png&quot; alt=&quot;featuresize_boosting&quot; /&gt;&lt;/p&gt;
+
+&lt;h5&gt;Random Forest in FEST&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xk717.com1.z0.glb.clouddn.com/featuresize_randomforest.png&quot; alt=&quot;featuresize_randomforest&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusions-and-analysis-1&quot;&gt;2.3 Conclusions and Analysis&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Liblinear performs the best with the highest accuracy rate and minimum training time, followed by FEST random forest and FEST boosting.&lt;/li&gt;
+  &lt;li&gt;Test Accuracy:
+    &lt;ul&gt;
+      &lt;li&gt;Liblinear&lt;br /&gt;
+  Test accuracy is converging. The increasing speed slows down when feature size reaches 5k&lt;/li&gt;
+      &lt;li&gt;FEST boosting&lt;br /&gt;
+  Test accuracy vibrates a little bit but still it stays the same for two periods and exhibits a small leap after feature size reaches 26k&lt;/li&gt;
+      &lt;li&gt;FEST randomforest&lt;br /&gt;
+  Test accuracy vibrates around 94.7% when feature size is bigger than 5k&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Training Time:
+    &lt;ul&gt;
+      &lt;li&gt;Liblinear&lt;br /&gt;
+  Training time is converging intially, but when feature size reaches 26k it suddenly jumps up and then decreses gradually.&lt;/li&gt;
+      &lt;li&gt;FEST boosting&lt;br /&gt;
+  Training time is converging as a whole. But it presents a tiny leap when feature size reaches 26k.&lt;/li&gt;
+      &lt;li&gt;FEST random forest&lt;br /&gt;
+  Training time shakes a lot. It increases as a whole initially and falls down suddenly when feature size reaches 30k.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      </item>
+    
+      <item>
         <title>Adaboost/Multiboost/Liblinear Classification Experiment Results</title>
-        <link>http://junjiek.com/2015/07/12/bootsing-svm-insights.html</link>
-        <guid isPermaLink="true">http://junjiek.com/2015/07/12/bootsing-svm-insights.html</guid>
+        <link>http://junjiek.com/2015/07/12/bootsing-svm-exp.html</link>
+        <guid isPermaLink="true">http://junjiek.com/2015/07/12/bootsing-svm-exp.html</guid>
         <pubDate>Sun, 12 Jul 2015 00:00:00 -0400</pubDate>
         <description>&lt;blockquote&gt;
   &lt;p&gt;Test and compare the existing svm and boosting packages from two perspectives:&lt;br /&gt;
-1. Running time and accuracy with different size of training set&lt;br /&gt;
-2. Running time and accuracy with different size of feature&lt;/p&gt;
+1. Training time and accuracy with different size of training set&lt;br /&gt;
+2. Training time and accuracy with different size of feature&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;different-sample-size&quot;&gt;1. Different sample size&lt;/h2&gt;
@@ -70,8 +231,8 @@
 
 &lt;h3 id=&quot;conclusions-and-analysis&quot;&gt;1.3 Conclusions and Analysis&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;Liblinear performs the best with the highest accuracy rate and minimum running time.&lt;/li&gt;
-  &lt;li&gt;For all 3 algorithms, the testing accuracy is converging and the running time increases linearly with the growth of training sample size.&lt;/li&gt;
+  &lt;li&gt;Liblinear performs the best with the highest accuracy rate and minimum training time.&lt;/li&gt;
+  &lt;li&gt;For all 3 algorithms, the test accuracy is converging and the training time increases linearly with the growth of training sample size.&lt;/li&gt;
   &lt;li&gt;For those two boosting algorithms
     &lt;ul&gt;
       &lt;li&gt;Adaboost performs better in prediction accuracy.&lt;/li&gt;
@@ -86,7 +247,7 @@
 &lt;ul&gt;
   &lt;li&gt;Dataset: &lt;a href=&quot;http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#rcv1.binary&quot;&gt;rcv1.binary&lt;/a&gt;
     &lt;ul&gt;
-      &lt;li&gt;Traing set:
+      &lt;li&gt;Training set:
         &lt;ul&gt;
           &lt;li&gt;Randomly sample 0.3 among &lt;a href=&quot;http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/rcv1_train.binary.bz2&quot;&gt;rcv1_train.binary&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;For each feature, calculate the p-value of the two-sample t-test between the positive and negative samples.&lt;/li&gt;
@@ -105,7 +266,7 @@
   &lt;li&gt;Measurement:
     &lt;ul&gt;
       &lt;li&gt;Prediction accuracy on test set&lt;/li&gt;
-      &lt;li&gt;Running time&lt;/li&gt;
+      &lt;li&gt;Training time&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;Parameters:
@@ -135,14 +296,14 @@
 
 &lt;h3 id=&quot;conclusions-and-analysis-1&quot;&gt;2.3 Conclusions and Analysis&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;Liblinear performs the best with the highest accuracy rate and minimum running time. Its testing accuracy is converging. Its running time is converging intially, but when feature size reaches &lt;strong&gt;26k&lt;/strong&gt; it suddenly jumps up and then decreses gradually.&lt;/li&gt;
+  &lt;li&gt;Liblinear performs the best with the highest accuracy rate and minimum training time. Its test accuracy is converging. Its training time is converging intially, but when feature size reaches &lt;strong&gt;26k&lt;/strong&gt; it suddenly jumps up and then decreses gradually.&lt;/li&gt;
   &lt;li&gt;For those two boosting algorithms
     &lt;ul&gt;
-      &lt;li&gt;Running time grows linearly&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Testing accuracy behaves like a step curve&lt;/strong&gt;, the accuracy remains almost &lt;strong&gt;unchanged&lt;/strong&gt; for both algorithms initially, but when feature size reaches &lt;strong&gt;26k&lt;/strong&gt;, it jumps up suddenly.&lt;/li&gt;
+      &lt;li&gt;training time grows linearly. For adaboost, training time vibrates when feature size is large.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Test accuracy behaves like a step curve&lt;/strong&gt;, the accuracy remains almost &lt;strong&gt;unchanged&lt;/strong&gt; for both algorithms initially, but when feature size reaches &lt;strong&gt;26k&lt;/strong&gt;, it jumps up suddenly.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;It seems that interesting things have happened when feature size reaches 26k. Further examinations and experiments on other datasets are needed to find out the reason.&lt;/li&gt;
+  &lt;li&gt;It seems that interesting things have happened when feature size reaches 26k. Further examinations and experiments on other datasets are needed to find out the reasons.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
       </item>
@@ -241,6 +402,32 @@
   options:  
     -o: output score file  
     -v: verbose&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;festhttplowranknetnikosfest&quot;&gt;&lt;a href=&quot;http://lowrank.net/nikos/fest/&quot;&gt;Fest&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;使用方法&lt;/p&gt;
+&lt;h5&gt;Training&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;festlearn [options] data model
+        Available options:
+            -c &amp;lt;int&amp;gt;  : committee type:
+                        1 bagging
+                        2 boosting (default)
+                        3 random forest
+            -d &amp;lt;int&amp;gt;  : maximum depth of the trees (default: 1000)
+            -e        : report out of bag estimates (default: no)
+            -n &amp;lt;float&amp;gt;: relative weight for the negative class (default: 1)
+            -p &amp;lt;float&amp;gt;: parameter for random forests: (default: 1)
+                        (ratio of features considered over sqrt(features))
+            -t &amp;lt;int&amp;gt;  : number of trees (default: 100)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5&gt;Prediction&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;festclassify [options] data model predictions
+        Available options:
+             -t &amp;lt;int&amp;gt;  : number of trees to use (default: 0 = all)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&quot;svm&quot;&gt;SVM&lt;/h1&gt;

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<!--[if lte IE 9]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
+
+<title>Liblinear/Boosting/Random Forest Classification Experiment Results | 柯均洁的博客</title>
+<meta name="author" content="柯均洁">
+
+  <meta name="keywords" content="svm,fest,boosting,random forest">
+
+
+
+  <meta name="description " content="Liblinear/Boosting/Random Forest Classification Experiment Results">
+
+
+<link rel="shortcut icon" href="http://img6.douban.com/view/photo/photo/public/p2254493685.jpg" />
+
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+
+<link href="/pages/rss.xml" rel="alternate" title="柯均洁的博客" type="application/atom+xml">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+                  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+                          });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </head>
+  <body>
+    <aside id="sidebar">
+  <nav id="tags">
+    <a href="/index.html" id="avatar" style="background-image:url(http://ww1.sinaimg.cn/thumb180/6a5b2847jw1dstk863du5j.jpg)"></a>
+
+    <ul id="tags__ul">
+      <li id="pl__all" class="tags__li tags-btn active">所有文章</li>
+       
+        <li id="工具" class="tags__li tags-btn">工具</li>
+      
+    </ul>
+
+    <div id="tags__bottom">
+      <a href="mailto:kjj3300@163.com" id="icon-email" class="tags-btn fontello"></a>
+      <a href="/pages/rss.xml" id="icon-feed" class="tags-btn fontello"></a>
+    </div>
+  </nav> <!-- end #tags -->
+
+  <div id="posts-list">
+    <form action="" id="search-form">
+      <a href="/index.html" id="mobile-avatar" style="background-image:url(http://ww1.sinaimg.cn/thumb180/6a5b2847jw1dstk863du5j.jpg)"></a>
+      <!-- NOTE: input field is disabled by default -->
+      <input id="search-input" type="text" placeholder="Search..." disabled >
+    </form>
+
+    <nav id="pl__container">
+    
+      <a class="工具 pl__all" href="/2015/07/13/svm-fest-exp.html"><span class="pl__circle"></span><span class="pl__title">Liblinear/Boosting/Random Forest Classification Experiment Results</span><span class="pl__date">Jul 2015</span></a>
+    
+      <a class="工具 pl__all" href="/2015/07/12/bootsing-svm-exp.html"><span class="pl__circle"></span><span class="pl__title">Adaboost/Multiboost/Liblinear Classification Experiment Results</span><span class="pl__date">Jul 2015</span></a>
+    
+      <a class="工具 pl__all" href="/2015/07/07/ssh.html"><span class="pl__circle"></span><span class="pl__title">ssh使用方法总结</span><span class="pl__date">Jul 2015</span></a>
+    
+      <a class="工具 pl__all" href="/2015/07/06/boosting-and-svm-tools.html"><span class="pl__circle"></span><span class="pl__title">Boosting及SVM的工具使用总结</span><span class="pl__date">Jul 2015</span></a>
+    
+    </nav>
+  </div> <!-- end #posts-list -->
+</aside> <!-- end #sidebar -->
+    <div id="post">
+      <div id="pjax">
+        <article id="post__content">
+  <h1 id="post__title" data-identifier="20150713">Liblinear/Boosting/Random Forest Classification Experiment Results</h1>
+  <blockquote>
+  <p>Test and compare the existing svm and boosting packages from two perspectives:<br />
+1. Training time and accuracy with different size of training set<br />
+2. Training time and accuracy with different size of feature</p>
+
+  <p>After the <a href="http://localhost:4000/2015/07/12/bootsing-svm-exp.html">experiment using adaboost and multiboost</a>, I’ve found another ensemble package (<a href="http://lowrank.net/nikos/fest/">FEST</a>) for sparse high dimensional data.<br />
+This package outperforms previous boosting packages both in training time and test accuracy. The corresbonding paper seem to be <a href="http://icml2008.cs.helsinki.fi/papers/632.pdf">Caruana R, Karampatziakis N, Yessenalina A. An empirical evaluation of supervised learning in high dimensions[C]. <em>ICML</em>. ACM, 2008</a></p>
+
+</blockquote>
+
+<h2 id="different-sample-size">1. Different sample size</h2>
+
+<h3 id="descriptions">1.1 Descriptions</h3>
+<ul>
+  <li>Dataset: <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#rcv1.binary">rcv1.binary</a>
+    <ul>
+      <li>Training set: Randomly sample 0.1, 0.2, …, 1 among <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/rcv1_train.binary.bz2">rcv1_train.binary</a> to be the training set</li>
+      <li>Test set: Fixed subset (0.1 random sample) of <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/rcv1_test.binary.bz2">rcv1_test.binary</a></li>
+    </ul>
+  </li>
+  <li>Measurement:
+    <ul>
+      <li>Prediction accuracy on test set</li>
+      <li>Training time</li>
+    </ul>
+  </li>
+  <li>Parameters:
+    <ul>
+      <li><a href="http://www.csie.ntu.edu.tw/~cjlin/liblinear/">Liblinear</a>: Use the -C option to find the best c using cross-validation, use the best c to train the model and report the training time and accuracy on the test set.</li>
+      <li>Boosting in <a href="http://lowrank.net/nikos/fest/">FEST</a> Packages:
+        <ul>
+          <li>Maximum depth of the trees: <strong>5</strong> (when maximun depth is large, the training time is too long and the accuracy does not seem to be increaseing)</li>
+          <li>Rounds: 100</li>
+        </ul>
+      </li>
+      <li>Random forest in <a href="http://lowrank.net/nikos/fest/">FEST</a> Packages:
+        <ul>
+          <li>Maximum depth of the trees: <strong>100</strong> (random forest does not work so well when maximun depth is small)</li>
+          <li>Rounds (Number of trees): 100</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="results">1.2 Results</h3>
+
+<h5>All</h5>
+
+<p><img src="http://7xk717.com1.z0.glb.clouddn.com/samplesize_lib_fest.png" alt="samplesize_lib_fest" /></p>
+
+<h5>Liblinear</h5>
+<p><img src="http://7xk717.com1.z0.glb.clouddn.com/samplesize_liblinear2.png" alt="samplesize_liblinear2" /></p>
+
+<h5>Boosting in FEST</h5>
+<p><img src="http://7xk717.com1.z0.glb.clouddn.com/samplesize_boosting.png" alt="samplesize_boosting" /></p>
+
+<h5>Random Forest in FEST</h5>
+<p><img src="http://7xk717.com1.z0.glb.clouddn.com/samplesize_randomforest.png" alt="samplesize_randomforest" /></p>
+
+<h3 id="conclusions-and-analysis">1.3 Conclusions and Analysis</h3>
+<ul>
+  <li>Liblinear still performs the best with the highest accuracy rate and minimum training time, followed by FEST random forest and FEST boosting.</li>
+  <li>Test accuracy:
+    <ul>
+      <li>The test accuracy for all three algorithms are fairly closed to each other (within 2% difference).</li>
+      <li>For all 3 algorithms, the test accuracy is converging. The increasing speed is relatively fast when sample size is smaller than 2k, and slows down afterwards.</li>
+    </ul>
+  </li>
+  <li>Training time:
+    <ul>
+      <li>Random Forest and Liblinear is much faster than boosting.</li>
+      <li>For Liblinear and Boosting, training time increases almost linearly with the growth of training sample size.</li>
+      <li>For Random Forest, the training time curve is slightly quadratic.</li>
+      <li>When sample size reaches 17k, training time for all 3 algorithms seems to be vibrating a little bit, especially liblinear.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="different-feature-size">2. Different feature size</h2>
+
+<h3 id="descriptions-1">2.1 Descriptions</h3>
+<ul>
+  <li>Dataset: <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#rcv1.binary">rcv1.binary</a>
+    <ul>
+      <li>Training set:
+        <ul>
+          <li>Randomly sample 0.3 among <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/rcv1_train.binary.bz2">rcv1_train.binary</a></li>
+          <li>For each feature, calculate the p-value of the two-sample t-test between the positive and negative samples.</li>
+          <li>Sort features by desendant p-value</li>
+          <li>Select the first 0.1, 0.2, …, 1 features to generate new training data</li>
+        </ul>
+      </li>
+      <li>Test set:
+        <ul>
+          <li>Use one fixed test set: 0.1 sample from <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/rcv1_test.binary.bz2">rcv1_test.binary</a></li>
+          <li>For each new training data, choose same features of the test set to generate new test data.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Measurement:
+    <ul>
+      <li>Prediction accuracy on test set</li>
+      <li>Training time</li>
+    </ul>
+  </li>
+  <li>Parameters:
+    <ul>
+      <li>Same as previous section</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="results-1">2.2 Results</h3>
+
+<h5>All</h5>
+
+<p><img src="http://7xk717.com1.z0.glb.clouddn.com/featuresize_lib_fest.png" alt="featuresize_lib_fest" /></p>
+
+<h5>Liblinear</h5>
+<p><img src="http://7xk717.com1.z0.glb.clouddn.com/featuresize_liblinear.png" alt="featuresize_liblinear2" /></p>
+
+<h5>Boosting in FEST</h5>
+<p><img src="http://7xk717.com1.z0.glb.clouddn.com/featuresize_boosting.png" alt="featuresize_boosting" /></p>
+
+<h5>Random Forest in FEST</h5>
+<p><img src="http://7xk717.com1.z0.glb.clouddn.com/featuresize_randomforest.png" alt="featuresize_randomforest" /></p>
+
+<h3 id="conclusions-and-analysis-1">2.3 Conclusions and Analysis</h3>
+<ul>
+  <li>Liblinear performs the best with the highest accuracy rate and minimum training time, followed by FEST random forest and FEST boosting.</li>
+  <li>Test Accuracy:
+    <ul>
+      <li>Liblinear<br />
+  Test accuracy is converging. The increasing speed slows down when feature size reaches 5k</li>
+      <li>FEST boosting<br />
+  Test accuracy vibrates a little bit but still it stays the same for two periods and exhibits a small leap after feature size reaches 26k</li>
+      <li>FEST randomforest<br />
+  Test accuracy vibrates around 94.7% when feature size is bigger than 5k</li>
+    </ul>
+  </li>
+  <li>Training Time:
+    <ul>
+      <li>Liblinear<br />
+  Training time is converging intially, but when feature size reaches 26k it suddenly jumps up and then decreses gradually.</li>
+      <li>FEST boosting<br />
+  Training time is converging as a whole. But it presents a tiny leap when feature size reaches 26k.</li>
+      <li>FEST random forest<br />
+  Training time shakes a lot. It increases as a whole initially and falls down suddenly when feature size reaches 30k.</li>
+    </ul>
+  </li>
+</ul>
+
+</article> <!-- end #post__content -->
+
+<div id="post__share">
+  <a id="icon-twitter" class="fontello" href="https://twitter.com/intent/tweet?url=http://junjiek.com/2015/07/13/svm-fest-exp.html&text=Liblinear/Boosting/Random Forest Classification Experiment Results" target="_blank"></a>
+  <a id="icon-cc" class="fontello" href="http://creativecommons.org/licenses/by-nc-sa/3.0" target="_blank"></a>
+  <a id="icon-weibo" class="fontello" href="http://v.t.sina.com.cn/share/share.php?url=http://junjiek.com/2015/07/13/svm-fest-exp.html&title=Liblinear/Boosting/Random Forest Classification Experiment Results" target="_blank"></a>
+</div> <!-- end #post__share -->
+<div id="disqus_thread" name="junjiekcom">
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink" target="_blank">Loading Disqus comments...</a>
+</div>
+
+
+        <p id="copyright">Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>&nbsp;&nbsp;|&nbsp;&nbsp;Theme <a href="https://github.com/P233/3-Jekyll" target="_blank">3-Jekyll</a>&nbsp;&nbsp;|&nbsp;&nbsp;Hosted on <a href="https://pages.github.com" target="_blank">Github</a></p>
+      </div> <!-- end #pjax -->
+
+      <div id="post__toc-trigger">
+        <div id="post__toc">
+          <span id="post__toc-title">Table of Contents</span>
+          <ul id="post__toc-ul"></ul>
+        </div>
+      </div>
+    </div> <!-- end #post -->
+
+    <button id="js-fullscreen"><span id="icon-arrow" class="fontello"></span></button>
+
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.pjax.js"></script>
+<script src="/assets/js/nprogress.js"></script>
+<script src="/assets/js/script.js"></script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-64827079-1', 'junjiek.com');
+  ga('send', 'pageview');
+</script>
+  </body>
+</html>
