@@ -12,7 +12,7 @@ description: Liblinear/Boosting/Random Forest Classification Experiment Results
 > 2. Training time and accuracy with different size of feature
 > 
 > After the [experiment using adaboost and multiboost](http://localhost:4000/2015/07/12/bootsing-svm-exp.html), I've found another ensemble package ([FEST](http://lowrank.net/nikos/fest/)) for sparse high dimensional data.
-> This package outperforms previous boosting packages both in training time and test accuracy. The corresbonding paper seem to be [Caruana R, Karampatziakis N, Yessenalina A. An empirical evaluation of supervised learning in high dimensions[C]. *ICML*. ACM, 2008](http://icml2008.cs.helsinki.fi/papers/632.pdf)
+> This package outperforms previous boosting packages both in training time and test accuracy. The corresponding paper seem to be [Caruana R, Karampatziakis N, Yessenalina A. An empirical evaluation of supervised learning in high dimensions[C]. *ICML*. ACM, 2008](http://icml2008.cs.helsinki.fi/papers/632.pdf)
 > 
 
 ## 1. Different sample size
