@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Adaboost/Multiboost/Liblinear Classification Experiment Results
-category: 工具
+category: Result
 tags: Blog
 keywords: svm,boosting,adaboost,multiboost
 description: Adaboost/Multiboost/Liblinear Classification Experiment Results

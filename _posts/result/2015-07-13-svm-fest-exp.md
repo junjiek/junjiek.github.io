@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Liblinear/Boosting/Random Forest Classification Experiment Results
-category: 工具
+category: Result
 tags: Blog
 keywords: svm,fest,boosting,random forest
 description: Liblinear/Boosting/Random Forest Classification Experiment Results
