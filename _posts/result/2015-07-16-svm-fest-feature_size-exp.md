@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Liblinear/Boosting/Random Forest Classification Experiment Results2
-category: Result
+title: Liblinear/Boosting/Random Forest Classification Experiment Results 2
+category: result
 tags: Blog
 keywords: svm,fest,boosting,random forest
-description: Liblinear/Boosting/Random Forest Classification Experiment Results2
+description: Liblinear/Boosting/Random Forest Classification Experiment Results 2
 ---
 
 > Test Liblinear and FEST packages on more datasets using different number of features. All the datasets come from [LIBSVM](http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/) website.
@@ -16,59 +16,62 @@ description: Liblinear/Boosting/Random Forest Classification Experiment Results2
 
 ### 1.1 Info:
 * \# of data: 6,072 / 67,739 (testing)
-* \# of maximum features: 47200
+* \# of maximum features: 47,200
 
 ### 1.2 Result:
 
 #### 1.2.1 Choose by p-value ranking
 
-All 
-![rcv1_1](http://7xk717.com1.z0.glb.clouddn.com/rcv1_1.png)
-
-Liblinear
-![rcv1_2](http://7xk717.com1.z0.glb.clouddn.com/rcv1_2.png)
-
-FEST boosting
-![rcv1_3](http://7xk717.com1.z0.glb.clouddn.com/rcv1_3.png)
-
-FEST random forest
-![rcv1_4](http://7xk717.com1.z0.glb.clouddn.com/rcv1_4.png)
-
+![rcv1_all](http://7xk717.com1.z0.glb.clouddn.com/rcv1_all.png)
 
 #### 1.2.1 Choose by random
 
-All 
-![rcv1_r1](http://7xk717.com1.z0.glb.clouddn.com/rcv1_r1.png)
-
-Liblinear
-![rcv1_r2](http://7xk717.com1.z0.glb.clouddn.com/rcv1_r2.png)
-
-FEST boosting
-![rcv1_r3](http://7xk717.com1.z0.glb.clouddn.com/rcv1_r3.png)
-
-FEST random forest
-![rcv1_r4](http://7xk717.com1.z0.glb.clouddn.com/rcv1_r4.png)
+![rcv1_rall](http://7xk717.com1.z0.glb.clouddn.com/rcv1_rall.png)
 
 -------
 
-## 2. [news20.binary](http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#news20.binary)
+## 2. Sampled [real-sim](http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#real-sim)
 
 ### 2.1 Info:
-* \# of data: 9,998 / 9,998 (testing)
-* \# of maximum features: 1,355,180
+* \# of data: 636,155 / 36,154 (testing)
+* \# of maximum features: 20,940
 
 ### 2.2 Result:
 
+#### 2.2.1 Choose by p-value ranking
+
+![realsim_all](http://7xk717.com1.z0.glb.clouddn.com/realsim_all.png)
+
+
 #### 2.2.1 Choose by random
 
-All 
-![news20_r1](http://7xk717.com1.z0.glb.clouddn.com/news20_r1.png)
+![realsim_rall](http://7xk717.com1.z0.glb.clouddn.com/realsim_rall.png)
 
-Liblinear
-![news20_r2](http://7xk717.com1.z0.glb.clouddn.com/news20_r2.png)
+-------
 
-FEST boosting
-![news20_r3](http://7xk717.com1.z0.glb.clouddn.com/news20_r3.png)
+## 3. [news20.binary](http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#news20.binary)
 
-FEST random forest
-![news20_r4](http://7xk717.com1.z0.glb.clouddn.com/news20_r4.png)
+### 3.1 Info:
+* \# of data: 9,998 / 9,998 (testing)
+* \# of maximum features: 1,355,180
+
+### 3.2 Result:
+
+#### 3.2.1 Choose by random
+
+![news20_rall](http://7xk717.com1.z0.glb.clouddn.com/news20_rall.png)
+
+-------
+
+
+## 4. Sampled [url](http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#url)
+
+### 4.1 Info:
+* \# of data: 11,981 / 11,980 (testing)
+* \# of maximum features: 3,231,920
+
+### 4.2 Result:
+
+#### 4.2.1 Choose by random
+
+![url_rall](http://7xk717.com1.z0.glb.clouddn.com/url_rall.png)
