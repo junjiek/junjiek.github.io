@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Boosting及SVM的工具使用总结
-category: 工具
+category: tool
 tags: Blog
 keywords: svm,boosting,adaboost,multiboost
 description: Boosting及SVM的工具使用总结
