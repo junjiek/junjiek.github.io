@@ -71,6 +71,86 @@ description: Boosting及SVM的工具使用总结
             Available options:
                  -t <int>  : number of trees to use (default: 0 = all)
 
+## [randomForest](https://cran.r-project.org/web/packages/randomForest/index.html) in R
+
+#### Usage:
+Install R
+
+    ## MacOS  (https://cran.r-project.org/bin/macosx/)
+    ## Linux  (https://cran.r-project.org/bin/linux/ubuntu/)
+        $ sudo apt-get update
+        $ sudo apt-get install r-base 
+        $ sudo apt-get install r-base-dev
+
+Install randomForest package
+  
+    ## install.packages("mypkg", lib="/my/own/path/to/R-packages/")
+    > install.packages("randomForest")
+    > insatll.packages("Hmisc")
+  
+Default Parameters for randomForest
+
+    ## S3 method for class 'formula':
+    > randomForest((formula, data=NULL, ..., subset, na.action=na.fail))
+
+    ## S3 method for class 'default':
+    > randomForest((x, y=NULL,  xtest=NULL, ytest=NULL, ntree=500,
+                    mtry=if (!is.null(y) && !is.factor(y))
+                    max(floor(ncol(x)/3), 1) else floor(sqrt(ncol(x))),
+                    replace=TRUE, classwt=NULL, cutoff, strata,
+                    sampsize = if (replace) nrow(x) else ceiling(.632*nrow(x)),
+                    nodesize = if (!is.null(y) && !is.factor(y)) 5 else 1,
+                    maxnodes = NULL,
+                    importance=FALSE, localImp=FALSE, nPerm=1,
+                    proximity, oob.prox=proximity,
+                    norm.votes=TRUE, do.trace=FALSE,
+                    keep.forest=!is.null(y) && is.null(xtest), corr.bias=FALSE,
+                    keep.inbag=FALSE, ...))
+
+    ## S3 method for class 'randomForest':
+    > print((x, ...))
+
+## 1.3.Weka in java
+
+#### Usage: Add weka.jar to project; 
+
+    RandomForest m_classifier = new RandomForest();
+    m_classifier.setNumFeatures(100);
+    File inputFile = new File("path/to/file");
+    LibSVMLoader libsvm = new LibSVMLoader();
+    libsvm.setFile(inputFile);
+    Instances instancesTrain = libsvm.getDataSet();
+    // ---- convert the first row to nomial (do classification) ----
+    NumericToNominal convert= new NumericToNominal();
+    String[] options= new String[2];
+    options[0]="-R";
+    options[1]="1";  //range of variables to make numeric
+    onvert.setOptions(options);
+    convert.setInputFormat(instancesTrain);
+    instancesTrain=Filter.useFilter(instancesTrain, convert);
+    // --------------------
+    instancesTrain.setClassIndex(0);
+    m_classifier.buildClassifier(instancesTrain);
+    m_classifier.classifyInstance(instancesTest.instance(i)
+
+## Scikit-Learn ([RandomForestClassifier](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)) in Python
+
+#### Usage
+
+    from sklearn.datasets import load_svmlight_files
+    from sklearn.ensemble import RandomForestClassifier
+    
+    def randomForest(trainfilename, testfilename):
+        X_train, y_train, X_test, y_test = load_svmlight_files((trainfilename, testfilename))
+        clf = RandomForestClassifier(n_estimators = 100)
+        clf = clf.fit(X_train, y_train)
+        y_predicted = clf.predict(X_test)
+        y_pred = clf.predict(X_test)
+        macro = f1_score(y_test, y_pred, average='macro')
+        micro = f1_score(y_test, y_pred, average='micro')
+        print 'micro:', micro, ', macro:', macro
+
+
 # SVM
 
 Documentation：（[Libsvm](http://www.csie.ntu.edu.tw/~cjlin/papers/guide/guide.pdf) [Liblinear](http://www.csie.ntu.edu.tw/~cjlin/papers/liblinear.pdf)）
