@@ -26,38 +26,78 @@ description: Liblinear/Boosting/Random Forest Classification Experiment Results 
 
 ### 1.2 Result:
 
-#### 1.2.1 Choose by p-value ranking
+#### 1.2.1 Select by Information Gain
 
-![rcv1_all](http://7xk717.com1.z0.glb.clouddn.com/rcv1_all.png)
+![rcv1_binary_ig](http://7xk717.com1.z0.glb.clouddn.com/rcv1_binary_ig.png)
 
-#### 1.2.2 Choose by random
+#### 1.2.2 Select by CHI-square test
 
-![rcv1_rall](http://7xk717.com1.z0.glb.clouddn.com/rcv1_rall.png)
+![rcv1_binary_chi](http://7xk717.com1.z0.glb.clouddn.com/rcv1_binary_chi.png)
 
-#### 1.2.3 Compare ranking and random
-![rcv1_cmp](http://7xk717.com1.z0.glb.clouddn.com/rcv1_cmp.png)
+#### 1.2.3 Select by t-test p-value 
+
+![rcv1_binary_t](http://7xk717.com1.z0.glb.clouddn.com/rcv1_binary_t.png)
+
+#### 1.2.4 Select by random
+
+![rcv1_binary_r](http://7xk717.com1.z0.glb.clouddn.com/rcv1_binary_r.png)
+
+#### 1.2.5 Compare random, IG, CHI^2, t-test
+![rcv1_binary_cmp](http://7xk717.com1.z0.glb.clouddn.com/rcv1_binary_cmp.png)
 
 -------
 
 ## 2. Sampled [real-sim](http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#real-sim)
 
 ### 2.1 Info:
-* \# of data: 636,155 / 36,154 (testing)
+* \# of data: 36,155 / 36,154 (testing)
 * \# of maximum features: 20,940
 
 ### 2.2 Result:
 
-#### 2.2.1 Choose by p-value ranking
+#### 2.2.1 Select by Information Gain
 
-![realsim_all](http://7xk717.com1.z0.glb.clouddn.com/realsim_all.png)
+![realsim_ig](http://7xk717.com1.z0.glb.clouddn.com/realsim_ig.png)
 
+#### 2.2.2 Select by CHI-square
 
-#### 2.2.2 Choose by random
+![realsim_chi](http://7xk717.com1.z0.glb.clouddn.com/realsim_chi.png)
 
-![realsim_rall](http://7xk717.com1.z0.glb.clouddn.com/realsim_rall.png)
+#### 2.2.3 Select by t-test p-value
 
-#### 2.2.3 Compare ranking and random
+![realsim_t](http://7xk717.com1.z0.glb.clouddn.com/realsim_all.png)
+
+#### 2.2.4 Select by random
+
+![realsim_r](http://7xk717.com1.z0.glb.clouddn.com/realsim_rall.png)
+
+#### 2.2.5 Compare random, IG, CHI^2, t-test
 ![realsim_cmp](http://7xk717.com1.z0.glb.clouddn.com/realsim_cmp.png)
+
+-------
+
+## 4. [news20.binary](http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#news20.binary)
+
+### 3.1 Info:
+* \# of data: 9,998 / 9,998 (testing)
+* \# of maximum features: 1,355,180
+
+### 3.2 Result:
+
+#### 3.2.1 Select by Information Gain
+
+![news20_binary_ig](http://7xk717.com1.z0.glb.clouddn.com/news20_binary_ig.png)
+
+#### 3.2.1 Select by CHI-square
+
+![news20_binary_chi](http://7xk717.com1.z0.glb.clouddn.com/news20_binary_chi.png)
+
+#### 3.2.1 Select by random
+
+![news20_binary_r](http://7xk717.com1.z0.glb.clouddn.com/news20_binary_r.png)
+
+#### 2.2.3 Compare random, IG, CHI^2
+![news20_binary_cmp](http://7xk717.com1.z0.glb.clouddn.com/news20_binary_cmp.png)
 
 -------
 
@@ -71,35 +111,30 @@ description: Liblinear/Boosting/Random Forest Classification Experiment Results 
 
 ### 3.2 Result:
 
-#### 3.2.1 Choose by p-value ranking
+> This dataset has negative value which CHI-square in scikit-learn doesn't accept
 
-![gisette_all](http://7xk717.com1.z0.glb.clouddn.com/gisette_all.png)
+#### 3.2.1 Select by Information Gain
 
-#### 3.2.2 Choose by random
+![gisette_ig](http://7xk717.com1.z0.glb.clouddn.com/gisette_ig.png)
 
-![gisette_rall](http://7xk717.com1.z0.glb.clouddn.com/gisette_rall.png)
+#### 3.2.2 Select by t-test p-value
 
-#### 3.2.3 Compare ranking and random
+![gisette_t](http://7xk717.com1.z0.glb.clouddn.com/gisette_t.png)
+
+#### 3.2.3 Select by random
+
+![gisette_r](http://7xk717.com1.z0.glb.clouddn.com/gisette_r.png)
+
+#### 3.2.4 Compare random, IG, t-test
 ![gisette_cmp](http://7xk717.com1.z0.glb.clouddn.com/gisette_cmp.png)
 
--------
-
-## 4. [news20.binary](http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#news20.binary)
-
-### 3.1 Info:
-* \# of data: 9,998 / 9,998 (testing)
-* \# of maximum features: 1,355,180
-
-### 3.2 Result:
-
-#### 3.2.1 Choose by random
-
-![news20_rall](http://7xk717.com1.z0.glb.clouddn.com/news20_rall.png)
 
 -------
 
 
 ## 5. Sampled [url](http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#url)
+
+> This dataset has negative value which CHI-square in scikit-learn doesn't accept
 
 ### 4.1 Info:
 * \# of data: 11,981 / 11,980 (testing)
@@ -107,6 +142,13 @@ description: Liblinear/Boosting/Random Forest Classification Experiment Results 
 
 ### 4.2 Result:
 
-#### 4.2.1 Choose by random
+#### 4.2.1 Select by Information Gain
 
-![url_rall](http://7xk717.com1.z0.glb.clouddn.com/url_rall.png)
+![url_ig](http://7xk717.com1.z0.glb.clouddn.com/url_ig.png)
+
+#### 4.2.2 Select by random
+
+![url_r](http://7xk717.com1.z0.glb.clouddn.com/url_r.png)
+
+#### 4.2.3 Compare random, IG
+![url_cmp](http://7xk717.com1.z0.glb.clouddn.com/url_cmp.png)
