@@ -76,7 +76,7 @@ description: Liblinear/Boosting/Random Forest Classification Experiment Results 
 
 -------
 
-## 4. [news20.binary](http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#news20.binary)
+## 3. [news20.binary](http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#news20.binary)
 
 ### 3.1 Info:
 * \# of data: 9,998 / 9,998 (testing)
@@ -101,27 +101,27 @@ description: Liblinear/Boosting/Random Forest Classification Experiment Results 
 
 -------
 
-## 3. [gisette](http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#gisette)
+## 4. [gisette](http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#gisette)
 
 > Although this dataset is a small one, it takes a very long time to run. 
 
-### 3.1 Info:
+### 4.1 Info:
 * \# of data: 6,100 / 1,000 (testing)
 * \# of maximum features: 20,940
 
-### 3.2 Result:
+### 4.2 Result:
 
 > This dataset has negative value which CHI-square in scikit-learn doesn't accept
 
-#### 3.2.1 Select by Information Gain
+#### 4.2.1 Select by Information Gain
 
 ![gisette_ig](http://7xk717.com1.z0.glb.clouddn.com/gisette_ig.png)
 
-#### 3.2.2 Select by t-test p-value
+#### 4.2.2 Select by t-test p-value
 
 ![gisette_t](http://7xk717.com1.z0.glb.clouddn.com/gisette_t.png)
 
-#### 3.2.3 Select by random
+#### 4.2.3 Select by random
 
 ![gisette_r](http://7xk717.com1.z0.glb.clouddn.com/gisette_r.png)
 
@@ -136,19 +136,19 @@ description: Liblinear/Boosting/Random Forest Classification Experiment Results 
 
 > This dataset has negative value which CHI-square in scikit-learn doesn't accept
 
-### 4.1 Info:
+### 5.1 Info:
 * \# of data: 11,981 / 11,980 (testing)
 * \# of maximum features: 3,231,920
 
-### 4.2 Result:
+### 5.2 Result:
 
-#### 4.2.1 Select by Information Gain
+#### 5.2.1 Select by Information Gain
 
 ![url_ig](http://7xk717.com1.z0.glb.clouddn.com/url_ig.png)
 
-#### 4.2.2 Select by random
+#### 5.2.2 Select by random
 
 ![url_r](http://7xk717.com1.z0.glb.clouddn.com/url_r.png)
 
-#### 4.2.3 Compare random, IG
+#### 5.2.3 Compare random, IG
 ![url_cmp](http://7xk717.com1.z0.glb.clouddn.com/url_cmp.png)

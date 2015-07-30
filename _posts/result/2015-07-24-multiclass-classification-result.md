@@ -17,7 +17,6 @@ description: Liblinear/Scikit-learn/FEST Multiclass Classification Result
 * Liblinear: C = 1.0
 * FEST Boosting: ntree = 100, max_depth = 5
 * FEST Random Forest: ntree = 100, $$m_{try} = \sqrt{feature\ num}$$
-* Scikit-Learn Random Forest: ntree = 100, $$m_{try} = \sqrt{feature\ num}$$
 
 ## Multilabel Method:
 * Divide it into multiple binary classification problems.
