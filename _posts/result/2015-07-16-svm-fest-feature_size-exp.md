@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Liblinear/Boosting/Random Forest Classification Experiment Results 2
+title: Liblinear/Boosting/Random Forest Binary Classification Results
 category: result
 tags: Blog
 keywords: svm,fest,boosting,random forest
-description: Liblinear/Boosting/Random Forest Classification Experiment Results 2
+description: Liblinear/Boosting/Random Forest Binary Classification Results
 ---
 
 > Test Liblinear and FEST packages on more datasets using different number of features.
@@ -88,15 +88,15 @@ description: Liblinear/Boosting/Random Forest Classification Experiment Results 
 
 ![news20_binary_ig](http://7xk717.com1.z0.glb.clouddn.com/news20_binary_ig.png)
 
-#### 3.2.1 Select by CHI-square
+#### 3.2.2 Select by CHI-square
 
 ![news20_binary_chi](http://7xk717.com1.z0.glb.clouddn.com/news20_binary_chi.png)
 
-#### 3.2.1 Select by random
+#### 3.2.3 Select by random
 
 ![news20_binary_r](http://7xk717.com1.z0.glb.clouddn.com/news20_binary_r.png)
 
-#### 2.2.3 Compare random, IG, CHI^2
+#### 3.2.4 Compare random, IG, CHI^2
 ![news20_binary_cmp](http://7xk717.com1.z0.glb.clouddn.com/news20_binary_cmp.png)
 
 -------
@@ -125,7 +125,7 @@ description: Liblinear/Boosting/Random Forest Classification Experiment Results 
 
 ![gisette_r](http://7xk717.com1.z0.glb.clouddn.com/gisette_r.png)
 
-#### 3.2.4 Compare random, IG, t-test
+#### 4.2.4 Compare random, IG, t-test
 ![gisette_cmp](http://7xk717.com1.z0.glb.clouddn.com/gisette_cmp.png)
 
 

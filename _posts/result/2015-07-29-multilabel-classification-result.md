@@ -56,7 +56,7 @@ description: Liblinear/FEST Multilabel Classification Result
 ![r21578_cmp](http://7xk717.com1.z0.glb.clouddn.com/r21578_cmp.png)
 
 
-## 2. Subset of RCV1 (Topics Category Set)
+## 2. Subset of RCV1-v2 (Topics Category Set)
 
 ### 2.1. Info:
 * \# of classes: 103
