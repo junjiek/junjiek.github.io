@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Boosting及SVM的工具使用总结
+title: Summary of Boosting and SVM tools
 category: tool
 tags: Blog
 keywords: svm,boosting,adaboost,multiboost
-description: Boosting及SVM的工具使用总结
+description: Summary of Boosting and SVM tools
 ---
 >Wanna compare the performance of ensemble methods with svm, here's a summary of the usage of some existing tools.
 
