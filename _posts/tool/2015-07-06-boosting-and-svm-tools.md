@@ -18,9 +18,9 @@ description: Summary of Boosting and SVM tools
 
 ## [Multiboost](http://www.multiboost.org/)
 
-资源：[下载链接](http://www.multiboost.org/download/MultiBoost-1.2.02.zip?attredirects=0&d=1)、[使用文档](http://docs.google.com/viewer?a=v&pid=sites&srcid=bXVsdGlib29zdC5vcmd8d3d3fGd4OjE5YjY0MzgwNjNlNjU1NmY)
+Resource: [Download](http://www.multiboost.org/download/MultiBoost-1.2.02.zip?attredirects=0&d=1)、[Documentation](http://docs.google.com/viewer?a=v&pid=sites&srcid=bXVsdGlib29zdC5vcmd8d3d3fGd4OjE5YjY0MzgwNjNlNjU1NmY)
 
-使用方法：
+Usage:
 
     $ ./multiboost --stronglearner [AdaBoostMH/ArcGV/FilterBoost/VJcascade/SoftCascade]
                  --fileformat [arff/svmlight/simple]
@@ -32,7 +32,7 @@ description: Summary of Boosting and SVM tools
 
 ## [Adaboost](https://github.com/yamaguchi23/adaboost)
 
-使用方法：
+Usage:
 <h5>Training</h5>  
 
     $ ./abtrain [options] training_set_file [model_file]  
@@ -49,7 +49,7 @@ description: Summary of Boosting and SVM tools
 
 ## [Fest](http://lowrank.net/nikos/fest/)
 
-使用方法
+Usage:
 <h5>Training</h5>
 
     festlearn [options] data model
