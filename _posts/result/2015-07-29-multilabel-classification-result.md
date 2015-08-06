@@ -35,23 +35,23 @@ description: Liblinear/FEST Multilabel Classification Result
 
 #### 1.2.1. CHI-square
 
-![r21578_chi](http://7xk717.com1.z0.glb.clouddn.com/r21578_chi.png)
+![r21578_chi_1](http://7xk717.com1.z0.glb.clouddn.com/r21578_chi_1.png)
 
-* Bigger Ones: [All](http://7xk717.com1.z0.glb.clouddn.com/r21578_chi_1.png), [Liblinear](http://7xk717.com1.z0.glb.clouddn.com/r21578_chi_2.png),[FEST BT](http://7xk717.com1.z0.glb.clouddn.com/r21578_chi_3.png),[FEST RF](http://7xk717.com1.z0.glb.clouddn.com/r21578_chi_4.png)
+* Bigger Ones: [All](http://7xk717.com1.z0.glb.clouddn.com/r21578_chi_1.png), [Liblinear](http://7xk717.com1.z0.glb.clouddn.com/r21578_chi_2.png),[FEST BT](http://7xk717.com1.z0.glb.clouddn.com/r21578_chi_3.png),[FEST RF](http://7xk717.com1.z0.glb.clouddn.com/r21578_chi_4.png),[SVM light](http://7xk717.com1.z0.glb.clouddn.com/r21578_chi_5.png)
 
 #### 1.2.2. Information Gain
 
-![r21578_ig](http://7xk717.com1.z0.glb.clouddn.com/r21578_ig.png)
+![r21578_ig_1](http://7xk717.com1.z0.glb.clouddn.com/r21578_ig_1.png)
 
-* Bigger Ones: [All](http://7xk717.com1.z0.glb.clouddn.com/r21578_ig_1.png), [Liblinear](http://7xk717.com1.z0.glb.clouddn.com/r21578_ig_2.png),[FEST BT](http://7xk717.com1.z0.glb.clouddn.com/r21578_ig_3.png),[FEST RF](http://7xk717.com1.z0.glb.clouddn.com/r21578_ig_4.png)
+* Bigger Ones: [All](http://7xk717.com1.z0.glb.clouddn.com/r21578_ig_1.png), [Liblinear](http://7xk717.com1.z0.glb.clouddn.com/r21578_ig_2.png),[FEST BT](http://7xk717.com1.z0.glb.clouddn.com/r21578_ig_3.png),[FEST RF](http://7xk717.com1.z0.glb.clouddn.com/r21578_ig_4.png),[SVM light](http://7xk717.com1.z0.glb.clouddn.com/r21578_ig_5.png)
 
-#### 1.2.3. Random
+<!-- #### 1.2.3. Random
 
 ![r21578_r](http://7xk717.com1.z0.glb.clouddn.com/r21578_r.png)
 
-* Bigger Ones: [All](http://7xk717.com1.z0.glb.clouddn.com/r21578_r_1.png), [Liblinear](http://7xk717.com1.z0.glb.clouddn.com/r21578_r_2.png),[FEST BT](http://7xk717.com1.z0.glb.clouddn.com/r21578_r_3.png),[FEST RF](http://7xk717.com1.z0.glb.clouddn.com/r21578_r_4.png)
+* Bigger Ones: [All](http://7xk717.com1.z0.glb.clouddn.com/r21578_r_1.png), [Liblinear](http://7xk717.com1.z0.glb.clouddn.com/r21578_r_2.png),[FEST BT](http://7xk717.com1.z0.glb.clouddn.com/r21578_r_3.png),[FEST RF](http://7xk717.com1.z0.glb.clouddn.com/r21578_r_4.png) -->
 
-#### 1.2.4. Compare CHI, IG, Random
+#### 1.2.4. Compare CHI, IG
 
 ![r21578_cmp](http://7xk717.com1.z0.glb.clouddn.com/r21578_cmp.png)
 
