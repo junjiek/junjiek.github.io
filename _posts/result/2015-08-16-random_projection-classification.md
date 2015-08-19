@@ -9,7 +9,7 @@ description: Random Projection Classification Experiment
 
 # Random Projection as Weak Classifier
 
-I've implemented two weak classifier:
+I've implemented two weak classifiers:
 
 **Random Projection Classifier** (Use Random Projection directly as weak claasifier):
 1. Randomly project data to lower dimension;
@@ -34,8 +34,8 @@ I've also inserted these base classifiers into the Adaboost framework in scikit-
 
 ## Result:
 
-### 1. Different Random Projection Method
-When the dataset is large, GaussianRandomProjection will be much much more slower than SparseRandomProjection. Therefore, if we aim to enhance speed, we'd better use sparse projection matrix. In that sense, I am afraid we cannot adaptively change the projection matrix (as previously I suggested to change it to the mean of the majority class).
+### 1. Different Random Projection Methods
+When the dataset is large, [GaussianRandomProjection](http://scikit-learn.org/stable/modules/generated/sklearn.random_projection.GaussianRandomProjection.html#sklearn.random_projection.GaussianRandomProjection) will be much much more slower than [SparseRandomProjection](http://scikit-learn.org/stable/modules/generated/sklearn.random_projection.SparseRandomProjection.html#sklearn.random_projection.SparseRandomProjection). Therefore, if we aim to enhance speed, we'd better use sparse projection matrix. In that sense, I am afraid we cannot adaptively change the projection matrix (as previously I suggested to change it to the mean of the majority class).
 
 ### 2. Single Weak Classifier performance:
 > The blue line is the accuracy of decision stump. The red triangle represents the projected dimension suggested by the [Johnson Lindenstrauss Lemma](http://scikit-learn.org/stable/modules/generated/sklearn.random_projection.johnson_lindenstrauss_min_dim.html#sklearn.random_projection.johnson_lindenstrauss_min_dim), which is only related to the number of sample and a parameter eps.
@@ -89,4 +89,4 @@ Boost three classifiers by 100, 200,500, 1000 rounds. Although single RPDS perfo
     * Random Projection Matrix is hard to be changed adaptively
     * Boosting did not help much for this weak classifier
 2. Increase of projected dimension helps improve accuracy but lower speed. When projected dimension is too large, random projection takes longer time than decision stump
-3. Ensemble of **Random Projection Decision Stump** seem to enhance accuracy as well as speed, compared with ensemble of simple decision stump. 
+3. Ensemble of **Random Projection Decision Stump** seem to enhance accuracy as well as speed, compared with ensemble of simple decision stump. This is consistent with previous work, Random Projection helps improve diversity for tree classifiers.
